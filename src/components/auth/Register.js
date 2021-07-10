@@ -64,7 +64,7 @@ class Register extends Component {
 
 
     return (
-      <section style={{ background: '#f3f3f3' }} class="text-gray-600 body-font">
+      <section ststyle={{ background: '#f3f3f3' }} class="text-gray-600 body-font">
         <div style={{ height: '100vh' }} class="container flex md:flex-row flex-col items-center">
           <div class="lg:flex-grow mt-10 md:px-0 sm:px-0 px-10 mx-auto md:w-1/2 lg:pr-24 md:pr-16 flex flex-col  mb-16 md:mb-0  text-center">
             <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900"> Register yourself to view dashboard </h1>

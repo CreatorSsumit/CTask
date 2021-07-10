@@ -9,7 +9,7 @@ class LogIn extends Component {
   state = {
     username: "",
     password: "",
-    panel: 'user'
+    panel: 'User'
   };
 
 
@@ -31,15 +31,18 @@ class LogIn extends Component {
             <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900"> Login yourself to view dashboard </h1>
             <p class="mb-8 leading-relaxed"> Man braid swag typewriter affogato, hella selvage wolf narwhal dreamcatcher.</p>
 
-            <small className='mb-4 text-danger'>Select anyone to continue </small>
+            <small className='mb-4 text-danger'>{this.state.panel} is selected to continue </small>
             <div className="flex justify-evenly">
 
-              {this.state.panel === 'admin' ? <Fragment> <button onClick={() => this.setState({ panel: 'admin' })} class="w-40 bg-indigo-500 text-white   hover:bg-indigo-300  font-semibold py-2 px-4 border border-gray-400 rounded">Admin Login</button>
-                <button onClick={() => this.setState({ panel: 'user' })} class="w-40 hover:text-white hover:bg-indigo-500 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded">User Login</button>
+              {this.state.panel === 'Admin' ? <Fragment>
+                <button onClick={() => this.setState({ panel: 'Admin' })} class="w-40 bg-indigo-500 hover:text-white hover:bg-indigo-500 text-white font-semibold py-2 px-4 border border-gray-400 rounded">Admin Login</button>
+
+                <button onClick={() => this.setState({ panel: 'User' })} class="w-40  text-black   hover:bg-indigo-300  font-semibold py-2 px-4 border border-gray-400 rounded">User Login</button>
+
               </Fragment> : <Fragment>
 
-                <button onClick={() => this.setState({ panel: 'admin' })} class="w-40  text-black   hover:bg-indigo-300  font-semibold py-2 px-4 border border-gray-400 rounded">Admin Login</button>
-                <button onClick={() => this.setState({ panel: 'user' })} class="w-40 bg-indigo-500 hover:text-white hover:bg-indigo-300 text-white font-semibold py-2 px-4 border border-gray-400 rounded">User Login</button>
+                <button onClick={() => this.setState({ panel: 'Admin' })} class="w-40  text-black   hover:bg-indigo-500  font-semibold py-2 px-4 border border-gray-400 rounded">Admin Login</button>
+                <button onClick={() => this.setState({ panel: 'User' })} class="w-40 bg-indigo-500 hover:text-white hover:bg-indigo-500 text-white font-semibold py-2 px-4 border border-gray-400 rounded">User Login</button>
 
 
               </Fragment>}
@@ -48,10 +51,10 @@ class LogIn extends Component {
             <form onSubmit={this.handleSubmit} class=" w-full  mt-5">
               <div class="relative  md:w-full lg:w-full ">
 
-                <input required id='username' placeholder='Enter Email' onChange={e => this.setState({ username: e.target.value })} type="email" name='username' class="w-full bg-gray-100 rounded border bg-opacity-50 border-gray-300 focus:ring-2 focus:ring-indigo-200 focus:bg-transparent focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                <input required id='username' placeholder={`Enter ${this.state.panel} Email`} onChange={e => this.setState({ username: e.target.value })} type="email" name='username' class="w-full bg-gray-100 rounded border bg-opacity-50 border-gray-300 focus:ring-2 focus:ring-indigo-200 focus:bg-transparent focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
 
 
-                <input required id='password' placeholder='Enter Password' onChange={(e) => this.setState({ password: e.target.value })} type="password" name='password' class="w-full mt-3 bg-gray-100 rounded border bg-opacity-50 border-gray-300 focus:ring-2 focus:ring-indigo-200 focus:bg-transparent focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                <input required id='password' placeholder={`Enter ${this.state.panel} Password`} onChange={(e) => this.setState({ password: e.target.value })} type="password" name='password' class="w-full mt-3 bg-gray-100 rounded border bg-opacity-50 border-gray-300 focus:ring-2 focus:ring-indigo-200 focus:bg-transparent focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
 
 
 
