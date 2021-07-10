@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect, useHistory } from 'react-router-dom';
 import './App.css';
 import LogIn from './components/auth/LogIn';
 import Register from './components/auth/Register';
@@ -7,7 +7,6 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { connect } from "react-redux";
 import Dashboard from "./components/dashboard/dashboard"
-
 
 library.add(faEdit);
 
@@ -26,7 +25,7 @@ class App extends Component {
         return (
 
             <div className="App">
-                <Router>
+                <BrowserRouter>
                     <div>
 
                         <Switch>
@@ -39,7 +38,7 @@ class App extends Component {
                         </Switch>
 
                     </div>
-                </Router>
+                </BrowserRouter>
             </div>
         );
     }

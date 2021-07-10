@@ -1,9 +1,13 @@
-
 import React, { Component } from 'react';
 import registerImage from '../../img/register.png';
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
-import { registeruser } from "../../actions/index"
+import { registeruser } from "../../actions/index";
+import { useHistory, Link } from "react-router-dom"
+
+
+
+
 
 class Register extends Component {
 
@@ -60,9 +64,9 @@ class Register extends Component {
 
 
     return (
-      <section style={{ background: `linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%)` }} class="text-gray-600 body-font">
-        <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-          <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col  mb-16 md:mb-0  text-center">
+      <section style={{ background: '#f3f3f3' }} class="text-gray-600 body-font">
+        <div style={{ height: '100vh' }} class="container flex md:flex-row flex-col items-center">
+          <div class="lg:flex-grow mt-10 md:px-0 sm:px-0 px-10 mx-auto md:w-1/2 lg:pr-24 md:pr-16 flex flex-col  mb-16 md:mb-0  text-center">
             <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900"> Register yourself to view dashboard </h1>
             <p class="mb-8 leading-relaxed"> Man braid swag typewriter affogato, hella selvage wolf narwhal dreamcatcher.</p>
 
@@ -85,13 +89,13 @@ class Register extends Component {
                 }
 
               </div>
-              <p class="text-sm mt-5 text-gray-500 w-full " style={{ color: '#F87171', fontWeight: 'bold' }}>I have a Account</p>
+              <p class="text-sm mt-5 text-gray-500 w-full " style={{ color: '#F87171', fontWeight: 'bold' }}><Link style={{ textDecoration: 'none' }} to={'/login'}>I have a Account</Link></p>
 
               <button type='submit' class="w-100  text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Register</button>
             </form>
 
           </div>
-          <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+          <div class="w-100 py-0" style={{ backgroundImage: `linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)` }}>
             <img class="object-cover object-center rounded" alt="register" src={registerImage} />
           </div>
         </div>

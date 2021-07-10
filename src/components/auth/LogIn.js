@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import registerImage from '../../img/register.png';
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import { loginuser } from "../../actions/index"
+import { Link } from "react-router-dom"
 
 class LogIn extends Component {
   state = {
     username: "",
     password: "",
-    panel: 'admin'
+    panel: 'user'
   };
 
 
@@ -19,18 +20,29 @@ class LogIn extends Component {
 
   };
   render() {
+
+
+    console.log(this.state.panel)
     return (
 
-      <section style={{ background: `linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%)` }} class="text-gray-600 body-font">
-        <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-          <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col  mb-16 md:mb-0  text-center">
+      <section ststyle={{ background: '#f3f3f3' }} class="text-gray-600 body-font">
+        <div style={{ height: '100vh' }} class="container flex md:flex-row flex-col items-center">
+          <div class="lg:flex-grow mt-10 md:px-0 sm:px-0 px-10 mx-auto md:w-1/2 lg:pr-24 md:pr-16 flex flex-col  mb-16 md:mb-0  text-center">
             <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900"> Login yourself to view dashboard </h1>
             <p class="mb-8 leading-relaxed"> Man braid swag typewriter affogato, hella selvage wolf narwhal dreamcatcher.</p>
 
+            <small className='mb-4 text-danger'>Select anyone to continue </small>
             <div className="flex justify-evenly">
-              {/* <button class="w-39 sm:w-40 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white  text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">Admin</button> */}
-              <button onClick={() => this.setState({ panel: 'admin' })} class="w-40  bg-indigo-500 text-white hover:bg-indigo-500 hover:text-white text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded">Admin Login</button>
-              <button onClick={() => this.setState({ panel: 'user' })} class="w-40 hover:text-black text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded">User Login</button>
+
+              {this.state.panel === 'admin' ? <Fragment> <button onClick={() => this.setState({ panel: 'admin' })} class="w-40 bg-indigo-500 text-white   hover:bg-indigo-300  font-semibold py-2 px-4 border border-gray-400 rounded">Admin Login</button>
+                <button onClick={() => this.setState({ panel: 'user' })} class="w-40 hover:text-white hover:bg-indigo-500 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded">User Login</button>
+              </Fragment> : <Fragment>
+
+                <button onClick={() => this.setState({ panel: 'admin' })} class="w-40  text-black   hover:bg-indigo-300  font-semibold py-2 px-4 border border-gray-400 rounded">Admin Login</button>
+                <button onClick={() => this.setState({ panel: 'user' })} class="w-40 bg-indigo-500 hover:text-white hover:bg-indigo-300 text-white font-semibold py-2 px-4 border border-gray-400 rounded">User Login</button>
+
+
+              </Fragment>}
             </div>
 
             <form onSubmit={this.handleSubmit} class=" w-full  mt-5">
@@ -44,13 +56,13 @@ class LogIn extends Component {
 
 
               </div>
-              <p class="text-sm mt-5 text-gray-500 w-full " style={{ color: '#F87171', fontWeight: 'bold' }}>Create new Account</p>
+              <p class="text-sm mt-5 text-gray-500 w-full " style={{ color: '#F87171', fontWeight: 'bold' }}><Link style={{ textDecoration: 'none' }} to={'/register'}>Create new Account</Link></p>
 
               <button type='submit' class="w-100  text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Login</button>
             </form>
 
           </div>
-          <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+          <div class="w-100" style={{ backgroundImage: `linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)` }}>
             <img class="object-cover object-center rounded" alt="register" src={registerImage} />
           </div>
         </div>

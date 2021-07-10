@@ -16,9 +16,9 @@ var createStoreMiddeleWrare = createStore(rootreducers, applyMiddleware(thunk))
 
 
 ReactDOM.render(<Provider store={createStoreMiddeleWrare}>
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+
+  <App />
+
 
 
 </Provider>, document.getElementById('root'));
