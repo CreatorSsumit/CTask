@@ -7,11 +7,16 @@ const initialstate = {
 }
 
 const Reducers = (state = initialstate, action) => {
-
+    console.log(action.payload)
     switch (action.type) {
 
 
+
         case 'Register':
+
+            return { ...state, registererror: null, isAuthenticated: action.payload.isAuthenticate, msg: action.payload.msg, profile: '' }
+
+        case 'Login':
             localStorage.setItem('user', JSON.stringify(action.payload))
             return { ...state, registererror: null, isAuthenticated: true, profile: action.payload }
         case 'error':

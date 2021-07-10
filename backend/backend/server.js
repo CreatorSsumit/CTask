@@ -47,7 +47,7 @@ require("./passportConfig")(passport);
 app.post("/login", (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {
     if (err) throw err;
-    if (!user) res.send("No User Exists");
+    if (!user) res.json({ error: "No User Exists" });
     else {
       req.logIn(user, (err) => {
         if (err) throw err;
@@ -80,7 +80,9 @@ app.post("/register", (req, res) => {
   });
 });
 app.get("/user", (req, res) => {
-  res.send(req.user) // The req.user stores the entire user that has been authenticated inside of it.
+
+  req.logOut();
+  res.end();// The req.user stores the entire user that has been authenticated inside of it.
 });
 //----------------------------------------- END OF ROUTES---------------------------------------------------
 //Start Server
