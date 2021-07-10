@@ -38,7 +38,7 @@ export const loginuser = (state) => dispatch => {
             username,
             password
         },
-        withCredentials: true,
+
         url: `${url}/login`,
     }).then((res) => {
 

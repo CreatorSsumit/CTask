@@ -7,11 +7,12 @@ const cookieParser = require("cookie-parser");
 const bcrypt = require("bcryptjs");
 const session = require("express-session");
 const bodyParser = require("body-parser");
-const app = express();
 const User = require("./user");
+const app = express();
+app.use(cors());
 //----------------------------------------- END OF IMPORTS---------------------------------------------------
 mongoose.connect(
-  'mongodb://localhost/cap', {
+  'mongodb+srv://capgemini:capgemini@cluster0.wxqs3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 },
@@ -23,12 +24,7 @@ mongoose.connect(
 // Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(
-  cors({
-    origin: "http://localhost:3000", // <-- location of the react app were connecting to
-    credentials: true,
-  })
-);
+
 app.use(
   session({
     secret: "secretcode",
