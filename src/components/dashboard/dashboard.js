@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 
 import '../../assets/vendors/iconfonts/mdi/css/materialdesignicons.css';
+import profile from "../../assets/images/profile/male/image_1.png"
+import { Doughnut, Bar, Line } from 'react-chartjs-2';
 
 
 
@@ -15,23 +17,13 @@ export default function Dashboard() {
 
 
             <nav class="t-header">
-                <div class="t-header-brand-wrapper">
-                    <a href="index.html">
-                        <img class="logo" src="../assets/images/logo.svg" alt="" />
-                        <img class="logo-mini" src="../assets/images/logo_mini.svg" alt="" />
-                    </a>
-                </div>
-                <div class="t-header-content-wrapper">
+                {/* <div class="t-header-brand-wrapper">
+
+                </div> */}
+                <div style={{ background: '#efefef' }} class="t-header-content-wrapper">
                     <div class="t-header-content">
-                        <button class="t-header-toggler t-header-mobile-toggler d-block d-lg-none">
-                            <i class="mdi mdi-menu"></i>
-                        </button>
-                        <form action="#" class="t-header-search-box">
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Search" autocomplete="off" />
-                                <button class="btn btn-primary" type="submit"><i class="mdi mdi-arrow-right-thick"></i></button>
-                            </div>
-                        </form>
+                        <img src='https://www.drupal.org/files/Capgemini_Logo_2COL_RGB.png' style={{ width: '170px' }} />
+
                         <ul class="nav ml-auto">
                             <li class="nav-item dropdown">
 
@@ -41,15 +33,15 @@ export default function Dashboard() {
                                 <a type="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="mdi mdi-apps mdi-1x"></i>
                                 </a>
-                                <ul class="dropdown-menu navbar-dropdown dropdown-menu-right" aria-labelledby="appsDropdown">
-                                    <div class="dropdown-header">
-                                        <h6 class="dropdown-title">Apps</h6>
-                                        <p class="dropdown-title-text mt-2">Authentication required for 3 apps</p>
+                                <ul style={{ backgroundColor: 'white', borderRadius: '10px', border: 'none' }} class="dropdown-menu navbar-dropdown dropdown-menu-right" aria-labelledby="appsDropdown">
+                                    <div style={{ background: 'none' }} class="dropdown-header">
+                                        <h6 class="dropdown-title">Dashboard</h6>
+                                        <p class="dropdown-title-text mt-2">Explore your test performance</p>
                                     </div>
-                                    <div class="dropdown-body border-top pt-0">
+                                    <div style={{ background: 'none' }} class="dropdown-body border-top pt-0">
                                         <a class="dropdown-grid">
                                             <i class="grid-icon mdi mdi-jira mdi-2x"></i>
-                                            <span class="grid-tittle">Jira</span>
+                                            <span class="grid-tittle">Analysis</span>
                                         </a>
                                         <a class="dropdown-grid">
                                             <i class="grid-icon mdi mdi-trello mdi-2x"></i>
@@ -80,10 +72,10 @@ export default function Dashboard() {
             </nav>
             <div class="page-body">
                 {/* <!-- partial:partials/_sidebar.html --> */}
-                <div class="sidebar">
+                <div style={{ background: '#efefef' }} class="sidebar">
                     <div class="user-profile">
                         <div class="display-avatar animated-avatar">
-                            <img class="profile-img img-lg rounded-circle" src="../assets/images/profile/male/image_1.png"
+                            <img class="profile-img img-lg rounded-circle" src={profile}
                                 alt="profile image" />
                         </div>
                         <div class="info-wrapper">
@@ -92,7 +84,7 @@ export default function Dashboard() {
                         </div>
                     </div>
                     <ul class="navigation-menu">
-                        <li class="nav-category-divider">MAIN</li>
+                        <li style={{ background: '#efefef' }} class="nav-category-divider">MAIN</li>
                         <li>
                             <a href="index.html">
                                 <span class="link-title">Dashboard</span>
@@ -130,72 +122,206 @@ export default function Dashboard() {
 
                 </div>
 
+
                 <div class="page-content-wrapper">
                     <div class="page-content-wrapper-inner">
                         <div class="content-viewport">
-                            <div class="row">
+                            <div style={{ padding: '20px', borderRadius: '20px', backgroundImage: 'linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)', color: 'white' }} class="row">
                                 <div class="col-12 py-5">
                                     <h4>Dashboard</h4>
-                                    <p class="text-gray">Welcome aboard, Allen Clerk</p>
+                                    <p class="text-white">Explore your performance out of the box</p>
                                 </div>
                             </div>
                             <div class="row">
+                                <small className='h6 pt-4 font-weight-bold' style={{ fontFamily: 'Roboto' }}>Your Points</small>
                                 <div class="col-md-3 col-sm-6 col-6 equel-grid">
-                                    <div class="grid">
-                                        <div class="grid-body text-gray">
+                                    <div style={{ background: '#f2f2f2', borderRadius: '10px' }} class="grid">
+
+
+                                        <div style={{ background: 'none' }} class="grid-body text-gray">
+
                                             <div class="d-flex justify-content-between">
                                                 <p>30%</p>
                                                 <p>+06.2%</p>
                                             </div>
-                                            <p class="text-black">Traffic</p>
-                                            <div class="wrapper w-50 mt-4">
-                                                <canvas height="45" id="stat-line_1"></canvas>
+                                            <p class="text-black">Html</p>
+                                            <div style={{ position: 'relative' }} class="wrapper w-100 mt-4">
+                                                <Line style={{ width: '20%' }}
+                                                    data={{
+
+                                                        labels: ['26june', '27june', '28june', '29june', '1july'],
+                                                        datasets: [{
+                                                            label: '# Points',
+                                                            data: [12, 19, 3, 5, 20],
+                                                            backgroundColor: [
+                                                                'rgba(255, 99, 132, 0.2)',
+                                                                'rgba(54, 162, 235, 0.2)',
+                                                                'rgba(255, 206, 86, 0.2)',
+
+                                                            ],
+                                                            borderColor: [
+                                                                'rgba(255, 99, 132, 1)',
+                                                                'rgba(54, 162, 235, 1)',
+                                                                'rgba(255, 206, 86, 1)',
+
+                                                            ],
+                                                            borderWidth: 1
+                                                        }]
+                                                    }}
+                                                    width={'20%'}
+                                                    height={100}
+                                                    options={{
+                                                        maintainAspectRatio: false, scales: {
+                                                            yAxes: [{ ticks: { beginAtZero: true } }]
+                                                        }
+                                                    }}
+                                                />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-3 col-sm-6 col-6 equel-grid">
-                                    <div class="grid">
-                                        <div class="grid-body text-gray">
+                                    <div style={{ background: '#f2f2f2', borderRadius: '10px' }} class="grid">
+
+
+                                        <div style={{ background: 'none' }} class="grid-body text-gray">
+
                                             <div class="d-flex justify-content-between">
-                                                <p>43%</p>
-                                                <p>+15.7%</p>
+                                                <p>30%</p>
+                                                <p>+06.2%</p>
                                             </div>
-                                            <p class="text-black">Conversion</p>
-                                            <div class="wrapper w-50 mt-4">
-                                                <canvas height="45" id="stat-line_2"></canvas>
+                                            <p class="text-black">Html</p>
+                                            <div style={{ position: 'relative' }} class="wrapper w-100 mt-4">
+                                                <Line style={{ width: '20%' }}
+                                                    data={{
+
+                                                        labels: ['26june', '27june', '28june', '29june', '1july'],
+                                                        datasets: [{
+                                                            label: '# Points',
+                                                            data: [12, 19, 3, 5, 20],
+                                                            backgroundColor: [
+                                                                'rgba(255, 99, 132, 0.2)',
+                                                                'rgba(54, 162, 235, 0.2)',
+                                                                'rgba(255, 206, 86, 0.2)',
+
+                                                            ],
+                                                            borderColor: [
+                                                                'rgba(255, 99, 132, 1)',
+                                                                'rgba(54, 162, 235, 1)',
+                                                                'rgba(255, 206, 86, 1)',
+
+                                                            ],
+                                                            borderWidth: 1
+                                                        }]
+                                                    }}
+                                                    width={'20%'}
+                                                    height={100}
+                                                    options={{
+                                                        maintainAspectRatio: false, scales: {
+                                                            yAxes: [{ ticks: { beginAtZero: true } }]
+                                                        }
+                                                    }}
+                                                />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="col-md-3 col-sm-6 col-6 equel-grid">
-                                    <div class="grid">
-                                        <div class="grid-body text-gray">
+                                    <div style={{ background: '#f2f2f2', borderRadius: '10px' }} class="grid">
+
+
+                                        <div style={{ background: 'none' }} class="grid-body text-gray">
+
                                             <div class="d-flex justify-content-between">
-                                                <p>23%</p>
-                                                <p>+02.7%</p>
+                                                <p>30%</p>
+                                                <p>+06.2%</p>
                                             </div>
-                                            <p class="text-black">Bounce Rate</p>
-                                            <div class="wrapper w-50 mt-4">
-                                                <canvas height="45" id="stat-line_3"></canvas>
+                                            <p class="text-black">Html</p>
+                                            <div style={{ position: 'relative' }} class="wrapper w-100 mt-4">
+                                                <Line style={{ width: '20%' }}
+                                                    data={{
+
+                                                        labels: ['26june', '27june', '28june', '29june', '1july'],
+                                                        datasets: [{
+                                                            label: '# Points',
+                                                            data: [12, 19, 3, 5, 20],
+                                                            backgroundColor: [
+                                                                'rgba(255, 99, 132, 0.2)',
+                                                                'rgba(54, 162, 235, 0.2)',
+                                                                'rgba(255, 206, 86, 0.2)',
+
+                                                            ],
+                                                            borderColor: [
+                                                                'rgba(255, 99, 132, 1)',
+                                                                'rgba(54, 162, 235, 1)',
+                                                                'rgba(255, 206, 86, 1)',
+
+                                                            ],
+                                                            borderWidth: 1
+                                                        }]
+                                                    }}
+                                                    width={'20%'}
+                                                    height={100}
+                                                    options={{
+                                                        maintainAspectRatio: false, scales: {
+                                                            yAxes: [{ ticks: { beginAtZero: true } }]
+                                                        }
+                                                    }}
+                                                />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="col-md-3 col-sm-6 col-6 equel-grid">
-                                    <div class="grid">
-                                        <div class="grid-body text-gray">
+                                    <div style={{ background: '#f2f2f2', borderRadius: '10px' }} class="grid">
+
+
+                                        <div style={{ background: 'none' }} class="grid-body text-gray">
+
                                             <div class="d-flex justify-content-between">
-                                                <p>75%</p>
-                                                <p>- 53.34%</p>
+                                                <p>30%</p>
+                                                <p>+06.2%</p>
                                             </div>
-                                            <p class="text-black">Marketing</p>
-                                            <div class="wrapper w-50 mt-4">
-                                                <canvas height="45" id="stat-line_4"></canvas>
+                                            <p class="text-black">Html</p>
+                                            <div style={{ position: 'relative' }} class="wrapper w-100 mt-4">
+                                                <Line style={{ width: '20%' }}
+                                                    data={{
+
+                                                        labels: ['26june', '27june', '28june', '29june', '1july'],
+                                                        datasets: [{
+                                                            label: '# Points',
+                                                            data: [12, 19, 3, 5, 20],
+                                                            backgroundColor: [
+                                                                'rgba(255, 99, 132, 0.2)',
+                                                                'rgba(54, 162, 235, 0.2)',
+                                                                'rgba(255, 206, 86, 0.2)',
+
+                                                            ],
+                                                            borderColor: [
+                                                                'rgba(255, 99, 132, 1)',
+                                                                'rgba(54, 162, 235, 1)',
+                                                                'rgba(255, 206, 86, 1)',
+
+                                                            ],
+                                                            borderWidth: 1
+                                                        }]
+                                                    }}
+                                                    width={'20%'}
+                                                    height={100}
+                                                    options={{
+                                                        maintainAspectRatio: false, scales: {
+                                                            yAxes: [{ ticks: { beginAtZero: true } }]
+                                                        }
+                                                    }}
+                                                />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
+
                                 <div class="col-lg-4 col-md-6 equel-grid">
                                     <div class="grid">
                                         <div class="grid-body d-flex flex-column h-100">
