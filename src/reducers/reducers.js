@@ -2,12 +2,12 @@ const initialstate = {
     profile: JSON.parse(localStorage.getItem('user')) || {},
     registererror: '',
     isloading: false,
-    isAuthenticated: localStorage.getItem('user')
+    isAuthenticated: localStorage.getItem('user') || false
 
 }
 
 const Reducers = (state = initialstate, action) => {
-    console.log(action.payload)
+
     switch (action.type) {
 
 

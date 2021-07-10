@@ -79,10 +79,10 @@ app.post("/register", (req, res) => {
     }
   });
 });
-app.get("/user", (req, res) => {
+app.get("/logout", (req, res) => {
 
   req.logOut();
-  res.end();// The req.user stores the entire user that has been authenticated inside of it.
+
 });
 //----------------------------------------- END OF ROUTES---------------------------------------------------
 //Start Server
