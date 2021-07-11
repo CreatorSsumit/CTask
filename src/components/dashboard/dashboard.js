@@ -79,7 +79,7 @@ function Dashboard(props) {
                 </div>
             </nav>
             <div class="page-body">
-                {/* <!-- partial:partials/_sidebar.html --> */}
+
                 <div style={{ background: '#efefef' }} class="sidebar">
                     <div class="user-profile">
                         <div class="display-avatar animated-avatar">
@@ -87,8 +87,8 @@ function Dashboard(props) {
                                 alt="profile image" />
                         </div>
                         <div class="info-wrapper">
-                            <p class="user-name">Allen Clerk</p>
-                            <h6 class="display-income">$3,400,00</h6>
+                            <p class="user-name">{props.state.data.profile.data.email}</p>
+
                         </div>
                     </div>
                     <ul class="navigation-menu">
