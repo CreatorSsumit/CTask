@@ -132,7 +132,7 @@ function Dashboard(props) {
 
 
                 <div class="page-content-wrapper">
-                    {quiz ? <> <div className='py-3 d-flex'><h6>Quiz No {quizno}</h6> &nbsp;&nbsp;&nbsp; <small>{date.toLocaleDateString()} </small> </div> <HtmlQuiz state={props.state} /> </> : <Performanceboard />}
+                    {quiz ? <> <div className='py-3 d-flex'><h6>Quiz No {quizno}</h6> &nbsp;&nbsp;&nbsp; <small>{date.toLocaleDateString()} </small> </div> <HtmlQuiz state={props.state} /> </> : <Performanceboard state={props.state} />}
 
 
                     <footer class="footer">
