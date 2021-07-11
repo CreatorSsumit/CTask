@@ -51,7 +51,7 @@ app.post("/login/:user", (req, res, next) => {
   if (id === 'User') {
 
     require("./userpassportConfig")(passport);
-    console.log('user', id)
+
     passport.authenticate("local", (err, user, info) => {
       if (err) throw err;
       if (!user) res.json({ error: "No User Exists , Do Register" });
