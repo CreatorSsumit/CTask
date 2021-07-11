@@ -23,6 +23,12 @@ const Reducers = (state = initialstate, action) => {
             return { ...state, registererror: null, isAuthenticated: action.payload.isAuthenticate, who: action.payload.who, profile: action.payload }
         case 'error':
             return { ...state, registererror: action.payload, profile: '' }
+
+        case 'Sentpoint': localStorage.setItem('user', JSON.stringify(action.payload))
+
+
+            return { ...state, registererror: null, isAuthenticated: action.payload.isAuthenticate, who: action.payload.who, profile: action.payload }
+
         default:
             return state
 

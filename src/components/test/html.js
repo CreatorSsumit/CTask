@@ -3,15 +3,21 @@ import { connect } from "react-redux";
 import { sendpoint } from "../../actions/index"
 import './quiz.css';
 
-function Html() {
+function Html(props) {
 
 
     const [point, setpoint] = useState(0)
-    const [queslist, setqueslist] = useState('')
+    const [queslist, setqueslist] = useState('');
+    const [type, settype] = useState('html');
+    const [id, setid] = useState('')
+
+
+
 
 
     var sendresult = () => {
-        console.log(point)
+        props.sendpoint(point, type, id)
+
     }
 
     var list = [
@@ -54,6 +60,9 @@ function Html() {
             setqueslist(s)
         }
 
+        if (props.id) {
+            setid(props.id)
+        }
 
 
     }, [point])
@@ -103,9 +112,11 @@ const mapDispatchToProps = ({
 })
 
 function mapStateToProps(state) {
-    console.log(state)
-    return {
 
+
+
+    return {
+        id: state.data.profile.data._id
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Html)

@@ -10,7 +10,12 @@ const bodyParser = require("body-parser");
 const User = require("./user");
 const Admin = require("./admin");
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3000", // <-- location of the react app were connecting to
+    credentials: true,
+  })
+);
 
 // mongodb+srv://capgemini:capgemini@cluster0.wxqs3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 //----------------------------------------- END OF IMPORTS---------------------------------------------------
@@ -51,7 +56,6 @@ app.post("/login/:user", (req, res, next) => {
   if (id === 'User') {
 
     require("./userpassportConfig")(passport);
-
     passport.authenticate("local", (err, user, info) => {
       if (err) throw err;
       if (!user) res.json({ error: "No User Exists , Do Register" });
@@ -69,7 +73,7 @@ app.post("/login/:user", (req, res, next) => {
     require("./adminpassportConfig")(passport);
     passport.authenticate("local", (err, user, info) => {
       if (err) throw err;
-      if (!user) res.json({ error: "No Admin Exists , Do Register " });
+      if (!user) res.json({ error: "No Admin Exists , Do Register" });
       else {
         req.logIn(user, (err) => {
           if (err) throw err;
@@ -131,6 +135,43 @@ app.post("/register/admin", (req, res) => {
     }
   });
 });
+
+app.get('/check', (req, res) => {
+  res.send(req.user)
+})
+
+app.get('/user', (req, res) => {
+  res.send(req.user)
+})
+
+app.post("/sendpoint", (req, res) => {
+  var { point, type, id } = req.body
+
+
+
+  User.findOne({ _id: id }).then(res => {
+
+    var date = new Date();
+    var a = date.toLocaleDateString();
+
+
+
+    var test = {
+      date: a,
+      type: type,
+      point: point
+    }
+
+    res.test.push(test);
+    res.save().then(e => {
+
+      res.json({ data: e, isAuthenticate: true, msg: 'Successfully Submit' })
+    })
+  }).catch(e => {
+    res.json({ error: 'do login again, user not found', isAuthenticated: false })
+  })
+
+})
 
 
 

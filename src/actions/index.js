@@ -38,7 +38,7 @@ export const loginuser = (state) => dispatch => {
             username,
             password
         },
-
+        withCredentials: true,
         url: `${url}/login/${panel}`,
     }).then((res) => {
 
@@ -58,18 +58,19 @@ export const loginuser = (state) => dispatch => {
 
 
 
-export const sendpoint = (state) => dispatch => {
+export const sendpoint = (point, type, id) => dispatch => {
 
-    const { username, password, panel } = state;
+    console.log(id)
 
     axios({
         method: "POST",
         data: {
-            username,
-            password
+            point,
+            type,
+            id
         },
 
-        url: `${url}/login/${panel}`,
+        url: `${url}/sendpoint`,
     }).then((res) => {
 
 
@@ -77,7 +78,7 @@ export const sendpoint = (state) => dispatch => {
         if (res.data.error) {
             dispatch(failregister(res.data.error))
         } else {
-            dispatch(successlogin(res.data))
+            dispatch(successsend(res.data))
         }
     }).catch(err => dispatch(failregister(err)))
 
@@ -86,7 +87,10 @@ export const sendpoint = (state) => dispatch => {
 }
 
 
-
+export const successsend = (res) => ({
+    type: 'Sentpoint',
+    payload: res
+})
 
 
 export const successregister = (res) => ({

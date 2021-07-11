@@ -1,5 +1,4 @@
 const User = require("./user");
-
 const bcrypt = require("bcryptjs");
 const localStrategy = require("passport-local").Strategy;
 
@@ -33,4 +32,3 @@ module.exports = function (passport) {
     });
   });
 };
-
