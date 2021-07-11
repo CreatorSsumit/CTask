@@ -71,9 +71,6 @@ export const sendpoint = (point, type) => dispatch => {
         url: `${url}/sendpoint`,
     }).then((res) => {
 
-        console.log(res)
-
-
         if (res.data.error) {
             dispatch(failregister(res.data.error))
         } else {
