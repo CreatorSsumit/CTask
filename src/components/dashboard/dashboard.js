@@ -5,15 +5,17 @@ import profile from "../../assets/images/profile/male/image_1.png";
 import HtmlQuiz from "../test/html"
 import { Doughnut, Bar, Line } from 'react-chartjs-2';
 import Performanceboard from "./perfomance";
+import { connect } from "react-redux"
 
 
-
-export default function Dashboard() {
+function Dashboard(props) {
 
 
     const [quiz, setquiz] = useState(false);
     const [date, setdate] = useState(new Date());
     const [quizno, setquizno] = useState(date.getDate());
+
+
 
 
 
@@ -130,7 +132,7 @@ export default function Dashboard() {
 
 
                 <div class="page-content-wrapper">
-                    {quiz ? <> <div className='py-3 d-flex'><h6>Quiz No {quizno}</h6> &nbsp;&nbsp;&nbsp; <small>{date.toLocaleDateString()} </small> </div> <HtmlQuiz /> </> : <Performanceboard />}
+                    {quiz ? <> <div className='py-3 d-flex'><h6>Quiz No {quizno}</h6> &nbsp;&nbsp;&nbsp; <small>{date.toLocaleDateString()} </small> </div> <HtmlQuiz state={props.state} /> </> : <Performanceboard />}
 
 
                     <footer class="footer">
@@ -156,3 +158,12 @@ export default function Dashboard() {
         </div>
     )
 }
+
+function mapStateToProps(state) {
+
+    return {
+        state: state
+    }
+}
+
+export default connect(mapStateToProps, null)(Dashboard);

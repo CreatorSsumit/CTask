@@ -4,13 +4,12 @@ import { sendpoint } from "../../actions/index"
 import './quiz.css';
 
 function Html(props) {
-    console.log(props)
 
+
+    const [timeralert, settimeralert] = useState(props.state.data.profile.msg);
     const [point, setpoint] = useState(0)
     const [queslist, setqueslist] = useState('');
     const [type, settype] = useState('html');
-    const [timeralert, settimeralert] = useState(false);
-
 
 
 
@@ -53,7 +52,7 @@ function Html(props) {
 
     ]
 
-    var timeer = false;
+    var timeer = 1;
 
     useEffect(() => {
         if (list) {
@@ -65,6 +64,9 @@ function Html(props) {
 
     }, [])
 
+    if (timeralert) {
+        alert(timeralert)
+    }
 
 
     const checkanswer = (result, data) => {
@@ -82,9 +84,7 @@ function Html(props) {
     return (
         <div>
             <div class="d-flex align-items-center pt-3">
-                {timeer ? <div class="alert alert-success" role="alert">
-                    {props.msg}
-                </div> : ''}
+
                 <div class="ml-auto mr-sm-5"> <button onClick={() => sendresult()} class="btn btn-success">Submit</button> </div>
 
             </div>
