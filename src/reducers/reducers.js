@@ -8,7 +8,7 @@ const initialstate = {
 }
 
 const Reducers = (state = initialstate, action) => {
-    console.log(action.payload)
+
     switch (action.type) {
 
 
@@ -27,7 +27,7 @@ const Reducers = (state = initialstate, action) => {
         case 'Sentpoint': localStorage.setItem('user', JSON.stringify(action.payload))
 
 
-            return { ...state, registererror: null, isAuthenticated: action.payload.isAuthenticate, who: action.payload.who, profile: action.payload }
+            return { ...state, registererror: null, isAuthenticated: action.payload.isAuthenticate, who: action.payload.who, profile: action.payload, msg: action.payload.msg }
 
         default:
             return state

@@ -4,11 +4,14 @@ import { sendpoint } from "../../actions/index"
 import './quiz.css';
 
 function Html(props) {
-
+    console.log(props)
 
     const [point, setpoint] = useState(0)
     const [queslist, setqueslist] = useState('');
     const [type, settype] = useState('html');
+    const [timeralert, settimeralert] = useState(false);
+
+
 
 
     var sendresult = () => {
@@ -50,6 +53,8 @@ function Html(props) {
 
     ]
 
+    var timeer = false;
+
     useEffect(() => {
         if (list) {
             var s = list.filter((e) => e.type === 'html')
@@ -58,7 +63,7 @@ function Html(props) {
 
 
 
-    }, [point])
+    }, [])
 
 
 
@@ -73,11 +78,15 @@ function Html(props) {
     }
 
 
+
     return (
         <div>
             <div class="d-flex align-items-center pt-3">
-
+                {timeer ? <div class="alert alert-success" role="alert">
+                    {props.msg}
+                </div> : ''}
                 <div class="ml-auto mr-sm-5"> <button onClick={() => sendresult()} class="btn btn-success">Submit</button> </div>
+
             </div>
 
             {queslist ? <> {queslist.map((data, index) => {
@@ -106,10 +115,8 @@ const mapDispatchToProps = ({
 
 function mapStateToProps(state) {
 
-    console.log(state)
-
     return {
-
+        alertmsg: state.data.msg
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Html)

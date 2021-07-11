@@ -31,6 +31,10 @@ class LogIn extends Component {
             <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900"> Login yourself to view dashboard </h1>
             <p class="mb-8 leading-relaxed"> Man braid swag typewriter affogato, hella selvage wolf narwhal dreamcatcher.</p>
 
+            {this.props.newuser ? <div class="alert alert-success" role="alert">
+              {this.props.newuser}
+            </div> : ''}
+
             <small className='mb-4 text-danger'>{this.state.panel} is selected to continue </small>
             <div className="flex justify-evenly">
 
