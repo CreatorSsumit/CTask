@@ -11,7 +11,7 @@ import Performanceboard from "./perfomance";
 export default function Dashboard() {
 
 
-    const [quiz, setquiz] = useState(true);
+    const [quiz, setquiz] = useState(false);
     const [date, setdate] = useState(new Date());
     const [quizno, setquizno] = useState(date.getDate());
 
@@ -92,20 +92,20 @@ export default function Dashboard() {
                     <ul class="navigation-menu">
                         <li style={{ background: '#efefef' }} class="nav-category-divider">MAIN</li>
                         <li>
-                            <a href="index.html">
-                                <span class="link-title">Dashboard</span>
+                            <a style={{ cursor: 'pointer' }} >
+                                <span onClick={() => setquiz(false)} class="link-title">Dashboard</span>
                                 <i class="mdi mdi-gauge link-icon"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#sample-pages" data-toggle="collapse" aria-expanded="false">
-                                <span class="link-title">Sample Pages</span>
-                                <i class="mdi mdi-flask link-icon"></i>
-                            </a>
+                            <a style={{ cursor: 'pointer' }}>
+                                <span onClick={() => setquiz(true)} class="link-title">Quiz Test</span>
 
+                                <i class="mdi mdi-clipboard-outline link-icon"></i>
+                            </a>
                         </li>
                         <li>
-                            <a href="#ui-elements" data-toggle="collapse" aria-expanded="false">
+                            <a >
                                 <span class="link-title">UI Elements</span>
                                 <i class="mdi mdi-bullseye link-icon"></i>
                             </a>

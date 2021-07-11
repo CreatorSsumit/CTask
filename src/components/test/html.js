@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from 'react'
+import { connect } from "react-redux";
+import { sendpoint } from "../../actions/index"
 import './quiz.css';
 
-export default function Html() {
+function Html() {
 
 
     const [point, setpoint] = useState(0)
     const [queslist, setqueslist] = useState('')
 
+
+    var sendresult = () => {
+        console.log(point)
+    }
 
     var list = [
 
@@ -42,14 +48,13 @@ export default function Html() {
 
     ]
 
-
     useEffect(() => {
         if (list) {
             var s = list.filter((e) => e.type === 'html')
             setqueslist(s)
         }
 
-        console.log(point)
+
 
     }, [point])
 
@@ -68,7 +73,10 @@ export default function Html() {
 
     return (
         <div>
+            <div class="d-flex align-items-center pt-3">
 
+                <div class="ml-auto mr-sm-5"> <button onClick={() => sendresult()} class="btn btn-success">Submit</button> </div>
+            </div>
 
             {queslist ? <> {queslist.map((data, index) => {
                 return (<div class="bg py-3 px-md-0 px-4 my-1 my-3">
@@ -81,10 +89,23 @@ export default function Html() {
             })}</> : ''}
 
             <div class="d-flex align-items-center pt-3">
-                <div id="prev"> <button class="btn btn-primary">Previous</button> </div>
-                <div class="ml-auto mr-sm-5"> <button class="btn btn-success">Next</button> </div>
+
+                <div class="ml-auto mr-sm-5"> <button onClick={() => sendresult()} class="btn btn-success">Submit</button> </div>
             </div>
 
         </div>
     )
 }
+
+
+const mapDispatchToProps = ({
+    sendpoint: sendpoint
+})
+
+function mapStateToProps(state) {
+    console.log(state)
+    return {
+
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Html)
