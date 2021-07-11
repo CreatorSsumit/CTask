@@ -10,7 +10,7 @@ import { Doughnut, Bar, Line } from 'react-chartjs-2';
 export default function Perfomance(props) {
 
 
-    console.log(state)
+    console.log(props.state)
 
     return (
         <div>

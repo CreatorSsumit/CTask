@@ -65,7 +65,7 @@ function Html(props) {
     }, [])
 
     if (timeralert) {
-        alert(timeralert)
+
     }
 
 
