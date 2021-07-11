@@ -4,7 +4,7 @@ var url = 'http://localhost:4000'
 
 export const registeruser = (state) => dispatch => {
 
-    const { username, password } = state;
+    const { username, password, panel } = state;
     console.log(state)
 
     axios({
@@ -15,7 +15,7 @@ export const registeruser = (state) => dispatch => {
             email: username
         },
 
-        url: `${url}/register`,
+        url: `${url}/register/${panel}`,
     }).then((res) => {
 
 
@@ -39,7 +39,7 @@ export const loginuser = (state) => dispatch => {
             password
         },
 
-        url: `${url}/login`,
+        url: `${url}/login/${panel}`,
     }).then((res) => {
 
 
@@ -47,7 +47,7 @@ export const loginuser = (state) => dispatch => {
         if (res.data.error) {
             dispatch(failregister(res.data.error))
         } else {
-            dispatch(successlogin(res.data.data))
+            dispatch(successlogin(res.data))
         }
     }).catch(err => dispatch(failregister(err)))
 

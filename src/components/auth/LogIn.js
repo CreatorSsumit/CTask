@@ -41,7 +41,7 @@ class LogIn extends Component {
 
               </Fragment> : <Fragment>
 
-                <button onClick={() => this.setState({ panel: 'Admin' })} class="w-40  text-black   hover:bg-indigo-500  font-semibold py-2 px-4 border border-gray-400 rounded">Admin Login</button>
+                <button onClick={() => this.setState({ panel: 'Admin' })} class="w-40  text-black   hover:bg-indigo-300  font-semibold py-2 px-4 border border-gray-400 rounded">Admin Login</button>
                 <button onClick={() => this.setState({ panel: 'User' })} class="w-40 bg-indigo-500 hover:text-white hover:bg-indigo-500 text-white font-semibold py-2 px-4 border border-gray-400 rounded">User Login</button>
 
 

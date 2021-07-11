@@ -2,14 +2,14 @@ const initialstate = {
     profile: JSON.parse(localStorage.getItem('user')) || {},
     registererror: '',
     isloading: false,
-    isAuthenticated: localStorage.getItem('user') || false
+    isAuthenticated: localStorage.getItem('user') || false,
+    who: 'user'
 
 }
 
 const Reducers = (state = initialstate, action) => {
-
+    console.log(action.payload)
     switch (action.type) {
-
 
 
         case 'Register':
@@ -18,7 +18,9 @@ const Reducers = (state = initialstate, action) => {
 
         case 'Login':
             localStorage.setItem('user', JSON.stringify(action.payload))
-            return { ...state, registererror: null, isAuthenticated: true, profile: action.payload }
+
+
+            return { ...state, registererror: null, isAuthenticated: action.payload.isAuthenticate, who: action.payload.who, profile: action.payload }
         case 'error':
             return { ...state, registererror: action.payload, profile: '' }
         default:
