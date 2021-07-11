@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const express = require("express");
+const router = express.Router()
 const cors = require("cors");
 const passport = require("passport");
 const passportLocal = require("passport-local").Strategy;
@@ -142,14 +143,15 @@ app.get('/check', (req, res) => {
 
 app.get('/user', (req, res) => {
   res.send(req.user)
+
 })
 
 app.post("/sendpoint", (req, res) => {
-  var { point, type, id } = req.body
+  var { point, type } = req.body
 
 
 
-  User.findOne({ _id: id }).then(res => {
+  User.findOne({ username: req.user.username }).then(resp => {
 
     var date = new Date();
     var a = date.toLocaleDateString();
@@ -162,11 +164,17 @@ app.post("/sendpoint", (req, res) => {
       point: point
     }
 
-    res.test.push(test);
-    res.save().then(e => {
+    resp.test.push(test);
+    resp.save().then(e => {
 
-      res.json({ data: e, isAuthenticate: true, msg: 'Successfully Submit' })
+      res.json({ data: e, isAuthenticate: true, msg: 'Submitted Successfully' })
+
+
     })
+
+
+
+
   }).catch(e => {
     res.json({ error: 'do login again, user not found', isAuthenticated: false })
   })

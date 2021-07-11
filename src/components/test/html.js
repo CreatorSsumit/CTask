@@ -9,14 +9,10 @@ function Html(props) {
     const [point, setpoint] = useState(0)
     const [queslist, setqueslist] = useState('');
     const [type, settype] = useState('html');
-    const [id, setid] = useState('')
-
-
-
 
 
     var sendresult = () => {
-        props.sendpoint(point, type, id)
+        props.sendpoint(point, type)
 
     }
 
@@ -60,9 +56,6 @@ function Html(props) {
             setqueslist(s)
         }
 
-        if (props.id) {
-            setid(props.id)
-        }
 
 
     }, [point])
@@ -113,10 +106,10 @@ const mapDispatchToProps = ({
 
 function mapStateToProps(state) {
 
-
+    console.log(state)
 
     return {
-        id: state.data.profile.data._id
+
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Html)

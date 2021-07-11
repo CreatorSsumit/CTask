@@ -1,5 +1,4 @@
 import axios from "axios";
-import Promise from "redux-promise";
 var url = 'http://localhost:4000'
 
 export const registeruser = (state) => dispatch => {
@@ -14,7 +13,7 @@ export const registeruser = (state) => dispatch => {
             password,
             email: username
         },
-
+        withCredentials: true,
         url: `${url}/register/${panel}`,
     }).then((res) => {
 
@@ -58,21 +57,21 @@ export const loginuser = (state) => dispatch => {
 
 
 
-export const sendpoint = (point, type, id) => dispatch => {
+export const sendpoint = (point, type) => dispatch => {
 
-    console.log(id)
 
     axios({
         method: "POST",
         data: {
             point,
             type,
-            id
-        },
 
+        },
+        withCredentials: true,
         url: `${url}/sendpoint`,
     }).then((res) => {
 
+        console.log(res)
 
 
         if (res.data.error) {
