@@ -13,11 +13,15 @@ function Html(props) {
 
 
     var sendresult = () => {
-        if (point) {
+        if (point > -1) {
+
             props.sendpoint(point, type)
             alert('Submitted SuccessFully')
+        } else if (!type) {
+            alert('Select Enyone Test Technology')
         } else {
-            alert('Select Enyone')
+
+            alert('Done , I know you didnt give answer correct or did not answering')
         }
 
 
@@ -61,9 +65,13 @@ function Html(props) {
     const checkanswer = (result, data) => {
 
         if (data) {
+
+            let wronganswer = 0;
             var a = data.question.options[result.target.id - 1];
             if (a === data.answer) {
                 setpoint(point + 10)
+            } else {
+                setpoint(point + wronganswer)
             }
         }
     }
@@ -74,30 +82,23 @@ function Html(props) {
 
     return (
         <div>
+            <h6 className='text-primary h6'>{type} is selected </h6>
             <div class="d-flex align-items-center pt-3">
 
                 <div className="flex justify-evenly">
 
-                    {true ? <Fragment>
-                        <div className='flex-wrap'>
-                            <button onClick={() => settype('html')} class="w-40  mr-4 bg-indigo-500 hover:text-white hover:bg-indigo-500 text-white font-semibold py-2 px-4 border border-gray-400 rounded">Html Test</button>
 
-                            <button onClick={() => settype('js')} class="w-40 mr-4  text-black    hover:bg-indigo-300  font-semibold py-2 px-4 border border-gray-400 rounded">JavaScript Test</button>
-                            <button onClick={() => settype('cplusplus')} class="w-40 mr-4  text-black   hover:bg-indigo-300  font-semibold py-2 px-4 border border-gray-400 rounded">C++ Test</button>
-                            <button onClick={() => settype('python')} class="w-40 mr-4  text-black   hover:bg-indigo-300  font-semibold py-2 px-4 border border-gray-400 rounded">Python Test</button>
+                    <div className='flex-wrap'>
+                        <button onClick={() => settype('html')} class="w-40  mr-4  hover:text-white hover:bg-indigo-500 text-black font-semibold py-2 px-4 border border-gray-400 rounded">Html Test</button>
 
-                        </div>
-                    </Fragment> : <Fragment>
+                        <button onClick={() => settype('js')} class="w-40 mr-4  text-black hover:text-white   hover:bg-indigo-500  font-semibold py-2 px-4 border border-gray-400 rounded">JavaScript Test</button>
+                        <button onClick={() => settype('cplusplus')} class="w-40 mr-4  text-black hover:text-white  hover:bg-indigo-500  font-semibold py-2 px-4 border border-gray-400 rounded">C++ Test</button>
+                        <button onClick={() => settype('python')} class="w-40 mr-4  text-black  hover:text-white hover:bg-indigo-500  font-semibold py-2 px-4 border border-gray-400 rounded">Python Test</button>
 
-                        <div className='flex-wrap'>
-                            <button onClick={() => settype('html')} class="w-40  mr-4 bg-indigo-500 hover:text-white hover:bg-indigo-500 text-white font-semibold py-2 px-4 border border-gray-400 rounded">Html Test</button>
+                    </div>
 
-                            <button onClick={() => settype('js')} class="w-40 mr-4  text-black    hover:bg-indigo-300  font-semibold py-2 px-4 border border-gray-400 rounded">JavaScript Test</button>
-                            <button onClick={() => settype('cplusplus')} class="w-40 mr-4  text-black   hover:bg-indigo-300  font-semibold py-2 px-4 border border-gray-400 rounded">C++ Test</button>
-                            <button onClick={() => settype('python')} class="w-40 mr-4  text-black   hover:bg-indigo-300  font-semibold py-2 px-4 border border-gray-400 rounded">Python Test</button>
 
-                        </div>
-                    </Fragment>}
+
                 </div>
                 <div class="ml-auto mr-sm-5"> <button onClick={() => sendresult()} class="btn btn-success">Submit</button> </div>
 
@@ -111,7 +112,7 @@ function Html(props) {
                     </div>
 
                 </div>)
-            })}</> : 'No Found'}
+            })}</> : 'No Quiz Found'}
 
             <div class="d-flex align-items-center pt-3">
 
