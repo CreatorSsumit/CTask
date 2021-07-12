@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom"
 
 import '../../assets/vendors/iconfonts/mdi/css/materialdesignicons.css';
 import profile from "../../assets/images/profile/male/image_1.png";
-import HtmlQuiz from "../test/html"
+import Quiz from "../test/quiz"
 import { Doughnut, Bar, Line } from 'react-chartjs-2';
 import Performanceboard from "./perfomance";
 import { connect } from "react-redux"
@@ -170,7 +170,7 @@ function Dashboard(props) {
 
 
                 <div class="page-content-wrapper">
-                    {quiz ? <> <div className='py-3 d-flex'><h6>Quiz No {quizno}</h6> &nbsp;&nbsp;&nbsp; <small>{date.toLocaleDateString()} </small> </div> <HtmlQuiz state={props.state} list={list} /> </> : <Performanceboard state={props.state} />}
+                    {quiz ? <> <div className='py-3 d-flex'><h6>Quiz No {quizno}</h6> &nbsp;&nbsp;&nbsp; <small>{date.toLocaleDateString()} </small> </div> <Quiz state={props.state} list={list} /> </> : <Performanceboard state={props.state} />}
 
 
                     <footer class="footer">

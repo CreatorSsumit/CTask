@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { sendpoint } from "../../actions/index"
 import './quiz.css';
 
-function Html(props) {
+function Quiz(props) {
 
 
     const [timeralert, settimeralert] = useState(props.state.data.profile.msg);
@@ -134,4 +134,4 @@ function mapStateToProps(state) {
         alertmsg: state.data.msg
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Html)
+export default connect(mapStateToProps, mapDispatchToProps)(Quiz)
