@@ -92,28 +92,19 @@ function Dashboard(props) {
                                     <div style={{ background: 'none' }} class="dropdown-header">
                                         <h6 class="dropdown-title">Dashboard</h6>
                                         <p class="dropdown-title-text mt-2">Explore your test performance</p>
-                                    </div>
-                                    <div style={{ background: 'none' }} class="dropdown-body border-top pt-0">
-                                        <a onClick={() => setquiz(false)} class="dropdown-grid">
-                                            <i class="grid-icon mdi mdi-jira mdi-2x"></i>
-                                            <span class="grid-tittle">Dashboard</span>
-                                        </a>
-                                        <a onClick={() => setquiz(true)} class="dropdown-grid">
-                                            <i class="grid-icon mdi mdi-trello mdi-2x"></i>
-                                            <span class="grid-tittle">Quiz</span>
-                                        </a>
-                                        <a class="dropdown-grid">
-                                            <i class="grid-icon mdi mdi-artstation mdi-2x"></i>
-                                            <span class="grid-tittle">Artstation</span>
-                                        </a>
-                                        <a class="dropdown-grid">
-                                            <i class="grid-icon mdi mdi-bitbucket mdi-2x"></i>
-                                            <span class="grid-tittle">Bitbucket</span>
-                                        </a>
-                                    </div>
-                                    <div class="dropdown-footer">
-                                        <a href="#">View All</a>
-                                    </div>
+                                    </div><center>
+                                        <div style={{ background: 'none' }} class="dropdown-body border-top pt-0">
+                                            <a style={{ cursor: 'pointer' }} onClick={() => setquiz(false)} class="dropdown-grid">
+                                                <i class="mdi mdi-gauge link-icon"></i>
+                                                <span class="grid-tittle">Dashboard</span>
+                                            </a>
+                                            <a style={{ cursor: 'pointer' }} onClick={() => setquiz(true)} class="dropdown-grid">
+                                                <i class="mdi mdi-clipboard-outline link-icon"></i>
+                                                <span class="grid-tittle">Quiz</span>
+                                            </a>
+
+                                        </div></center>
+
                                 </ul>
 
 

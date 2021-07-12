@@ -24,6 +24,8 @@ export default function Perfomance(props) {
 
         setstate(props.state.data.profile.data)
 
+        console.log(props.state.data.profile.data)
+
         if (state) {
 
             var htmldata = state.test.filter(ht => ht.type === 'html')
@@ -68,7 +70,6 @@ export default function Perfomance(props) {
     }, [props, state])
 
 
-    console.log(htmltest)
 
     return (
         <div>
@@ -313,8 +314,11 @@ export default function Perfomance(props) {
                                                     '#366E9F',
 
                                                 ],
-                                                hoverOffset: 4
+                                                hoverOffset: 4,
+
+
                                             }]
+
                                         }} />
                                     </div>
                                 </div>
@@ -335,7 +339,7 @@ export default function Perfomance(props) {
                                     <p class=" h6 text-danger text-black">Date</p>
                                     <p class=" h6 text-danger text-gray">Point Gained</p>
                                 </div>
-                                {state ? state.test.filter((e, index) => index < 6).map(data => {
+                                {state ? state.test.slice(Math.max(state.test.length - 6, 1)).reverse().map(data => {
                                     return (
                                         <div class="d-flex justify-content-around border-bottom py-2">
                                             <p class="text-black">{(data.type).toUpperCase()}</p>

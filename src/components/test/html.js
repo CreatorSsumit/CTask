@@ -89,11 +89,11 @@ function Html(props) {
 
 
                     <div className='flex-wrap'>
-                        <button onClick={() => settype('html')} class="w-40  mr-4  hover:text-white hover:bg-indigo-500 text-black font-semibold py-2 px-4 border border-gray-400 rounded">Html Test</button>
+                        <button onClick={() => settype('html')} class={` ${type === 'html' ? 'bg-indigo-500 text-white' : 'text-black'} w-40  mr-4  hover:text-white hover:bg-indigo-500  font-semibold py-2 px-4 border border-gray-400 rounded`}>Html Test</button>
 
-                        <button onClick={() => settype('js')} class="w-40 mr-4  text-black hover:text-white   hover:bg-indigo-500  font-semibold py-2 px-4 border border-gray-400 rounded">JavaScript Test</button>
-                        <button onClick={() => settype('cplusplus')} class="w-40 mr-4  text-black hover:text-white  hover:bg-indigo-500  font-semibold py-2 px-4 border border-gray-400 rounded">C++ Test</button>
-                        <button onClick={() => settype('python')} class="w-40 mr-4  text-black  hover:text-white hover:bg-indigo-500  font-semibold py-2 px-4 border border-gray-400 rounded">Python Test</button>
+                        <button onClick={() => settype('js')} class={` ${type === 'js' ? 'bg-indigo-500 text-white' : 'text-black'} w-40  mr-4  hover:text-white hover:bg-indigo-500  font-semibold py-2 px-4 border border-gray-400 rounded`}>JavaScript Test</button>
+                        <button onClick={() => settype('cplusplus')} class={` ${type === 'cplusplus' ? 'bg-indigo-500 text-white' : 'text-black'} w-40  mr-4  hover:text-white hover:bg-indigo-500  font-semibold py-2 px-4 border border-gray-400 rounded`}>C++ Test</button>
+                        <button onClick={() => settype('python')} class={` ${type === 'python' ? 'bg-indigo-500 text-white' : 'text-black'} w-40  mr-4  hover:text-white hover:bg-indigo-500  font-semibold py-2 px-4 border border-gray-400 rounded`}>Python Test</button>
 
                     </div>
 
