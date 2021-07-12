@@ -169,7 +169,6 @@ app.post("/sendpoint", (req, res) => {
 
       res.json({ data: e, isAuthenticate: true, msg: 'Submitted Successfully' })
 
-
     })
 
 

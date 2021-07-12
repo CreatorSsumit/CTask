@@ -18,51 +18,18 @@ function Html(props) {
 
     }
 
-    var list = [
-
-        {
-            type: 'html',
-            question: {
-                ques1: 'which option best describes your job role?',
-                options: ['a', 'b', 'c', 'd']
-            },
-
-            answer: 'a'
-        },
-
-        ,
-        {
-            type: 'html',
-            question: {
-                ques1: 'which option best describes your job role?',
-                options: ['a', 'b', 'c', 'd']
-            },
-
-            answer: 'b'
-        },
-        {
-            type: 'html',
-            question: {
-                ques1: 'which option best describes your job role?',
-                options: ['a', 'b', 'c', 'd']
-            },
-
-            answer: 'c'
-        },
-
-    ]
 
     var timeer = 1;
 
     useEffect(() => {
-        if (list) {
-            var s = list.filter((e) => e.type === 'html')
+        if (props.list) {
+            var s = props.list.filter((e) => e.type === 'html')
             setqueslist(s)
         }
 
 
 
-    }, [])
+    }, [props])
 
     if (timeralert) {
 

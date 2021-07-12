@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useHistory } from "react-router-dom"
 
 import '../../assets/vendors/iconfonts/mdi/css/materialdesignicons.css';
 import profile from "../../assets/images/profile/male/image_1.png";
@@ -10,10 +11,47 @@ import { connect } from "react-redux"
 
 function Dashboard(props) {
 
+    var history = useHistory();
+
 
     const [quiz, setquiz] = useState(false);
     const [date, setdate] = useState(new Date());
     const [quizno, setquizno] = useState(date.getDate());
+
+
+    var list = [
+
+        {
+            type: 'html',
+            question: {
+                ques1: 'which option best describes your job role?',
+                options: ['a', 'b', 'c', 'd']
+            },
+
+            answer: 'a'
+        },
+
+        ,
+        {
+            type: 'html',
+            question: {
+                ques1: 'which option best describes your job role?',
+                options: ['a', 'b', 'c', 'd']
+            },
+
+            answer: 'b'
+        },
+        {
+            type: 'html',
+            question: {
+                ques1: 'which option best describes your job role?',
+                options: ['a', 'b', 'c', 'd']
+            },
+
+            answer: 'c'
+        },
+
+    ]
 
 
 
@@ -47,13 +85,13 @@ function Dashboard(props) {
                                         <p class="dropdown-title-text mt-2">Explore your test performance</p>
                                     </div>
                                     <div style={{ background: 'none' }} class="dropdown-body border-top pt-0">
-                                        <a class="dropdown-grid">
+                                        <a onClick={() => setquiz(false)} class="dropdown-grid">
                                             <i class="grid-icon mdi mdi-jira mdi-2x"></i>
-                                            <span class="grid-tittle">Analysis</span>
+                                            <span class="grid-tittle">Dashboard</span>
                                         </a>
-                                        <a class="dropdown-grid">
+                                        <a onClick={() => setquiz(true)} class="dropdown-grid">
                                             <i class="grid-icon mdi mdi-trello mdi-2x"></i>
-                                            <span class="grid-tittle">Trello</span>
+                                            <span class="grid-tittle">Quiz</span>
                                         </a>
                                         <a class="dropdown-grid">
                                             <i class="grid-icon mdi mdi-artstation mdi-2x"></i>
@@ -132,7 +170,7 @@ function Dashboard(props) {
 
 
                 <div class="page-content-wrapper">
-                    {quiz ? <> <div className='py-3 d-flex'><h6>Quiz No {quizno}</h6> &nbsp;&nbsp;&nbsp; <small>{date.toLocaleDateString()} </small> </div> <HtmlQuiz state={props.state} /> </> : <Performanceboard state={props.state} />}
+                    {quiz ? <> <div className='py-3 d-flex'><h6>Quiz No {quizno}</h6> &nbsp;&nbsp;&nbsp; <small>{date.toLocaleDateString()} </small> </div> <HtmlQuiz state={props.state} list={list} /> </> : <Performanceboard state={props.state} />}
 
 
                     <footer class="footer">
@@ -144,9 +182,8 @@ function Dashboard(props) {
                                 </ul>
                             </div>
                             <div class="col-sm-6 text-center text-sm-left mt-3 mt-sm-0">
-                                <small class="text-muted d-block">Copyright © 2019 <a href="http://www.uxcandy.co"
-                                    target="_blank">UXCANDY</a>. All rights reserved</small>
-                                <small class="text-gray mt-2">Handcrafted With <i class="mdi mdi-heart text-danger"></i></small>
+                                <small class="text-muted d-block">Copyright © 2021 . All rights reserved</small>
+                                <small class="text-gray mt-2">Handcrafted With <i class="mdi mdi-heart text-danger"></i> for Capgemini task</small>
                             </div>
                         </div>
                     </footer>
@@ -160,6 +197,8 @@ function Dashboard(props) {
 }
 
 function mapStateToProps(state) {
+
+
 
     return {
         state: state
