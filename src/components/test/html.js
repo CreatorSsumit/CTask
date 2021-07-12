@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, Fragment } from 'react'
 import { connect } from "react-redux";
 import { sendpoint } from "../../actions/index"
 import './quiz.css';
@@ -12,9 +12,15 @@ function Html(props) {
     const [type, settype] = useState('html');
 
 
-
     var sendresult = () => {
-        props.sendpoint(point, type)
+        if (point) {
+            props.sendpoint(point, type)
+            alert('Submitted SuccessFully')
+        } else {
+            alert('Select Enyone')
+        }
+
+
 
     }
 
@@ -23,13 +29,29 @@ function Html(props) {
 
     useEffect(() => {
         if (props.list) {
-            var s = props.list.filter((e) => e.type === 'html')
-            setqueslist(s)
+
+            if (type === 'html') {
+                var ht = props.list.filter((e) => e.type === 'html')
+                setqueslist(ht)
+            }
+            if (type === 'js') {
+                var jst = props.list.filter((e) => e.type === 'js')
+                setqueslist(jst)
+            }
+            if (type === 'cplusplus') {
+                var ct = props.list.filter((e) => e.type === 'cplusplus')
+                setqueslist(ct)
+            }
+            if (type === 'python') {
+                var pt = props.list.filter((e) => e.type === 'python')
+                setqueslist(pt)
+            }
         }
 
 
 
-    }, [props])
+
+    }, [props, type, queslist])
 
     if (timeralert) {
 
@@ -48,10 +70,35 @@ function Html(props) {
 
 
 
+
+
     return (
         <div>
             <div class="d-flex align-items-center pt-3">
 
+                <div className="flex justify-evenly">
+
+                    {true ? <Fragment>
+                        <div className='flex-wrap'>
+                            <button onClick={() => settype('html')} class="w-40  mr-4 bg-indigo-500 hover:text-white hover:bg-indigo-500 text-white font-semibold py-2 px-4 border border-gray-400 rounded">Html Test</button>
+
+                            <button onClick={() => settype('js')} class="w-40 mr-4  text-black    hover:bg-indigo-300  font-semibold py-2 px-4 border border-gray-400 rounded">JavaScript Test</button>
+                            <button onClick={() => settype('cplusplus')} class="w-40 mr-4  text-black   hover:bg-indigo-300  font-semibold py-2 px-4 border border-gray-400 rounded">C++ Test</button>
+                            <button onClick={() => settype('python')} class="w-40 mr-4  text-black   hover:bg-indigo-300  font-semibold py-2 px-4 border border-gray-400 rounded">Python Test</button>
+
+                        </div>
+                    </Fragment> : <Fragment>
+
+                        <div className='flex-wrap'>
+                            <button onClick={() => settype('html')} class="w-40  mr-4 bg-indigo-500 hover:text-white hover:bg-indigo-500 text-white font-semibold py-2 px-4 border border-gray-400 rounded">Html Test</button>
+
+                            <button onClick={() => settype('js')} class="w-40 mr-4  text-black    hover:bg-indigo-300  font-semibold py-2 px-4 border border-gray-400 rounded">JavaScript Test</button>
+                            <button onClick={() => settype('cplusplus')} class="w-40 mr-4  text-black   hover:bg-indigo-300  font-semibold py-2 px-4 border border-gray-400 rounded">C++ Test</button>
+                            <button onClick={() => settype('python')} class="w-40 mr-4  text-black   hover:bg-indigo-300  font-semibold py-2 px-4 border border-gray-400 rounded">Python Test</button>
+
+                        </div>
+                    </Fragment>}
+                </div>
                 <div class="ml-auto mr-sm-5"> <button onClick={() => sendresult()} class="btn btn-success">Submit</button> </div>
 
             </div>
@@ -64,7 +111,7 @@ function Html(props) {
                     </div>
 
                 </div>)
-            })}</> : ''}
+            })}</> : 'No Found'}
 
             <div class="d-flex align-items-center pt-3">
 

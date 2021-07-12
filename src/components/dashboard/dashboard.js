@@ -30,6 +30,15 @@ function Dashboard(props) {
 
             answer: 'a'
         },
+        {
+            type: 'js',
+            question: {
+                ques1: 'which option best describes your job role?',
+                options: ['a', 'b', 'c', 'd']
+            },
+
+            answer: 'a'
+        }
 
         ,
         {

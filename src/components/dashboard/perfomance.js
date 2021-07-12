@@ -42,7 +42,7 @@ export default function Perfomance(props) {
             if (pydata) setpythontest(pydata)
             else setpythontest(0)
 
-            console.log(htmltest)
+
 
 
 
@@ -68,7 +68,7 @@ export default function Perfomance(props) {
     }, [props, state])
 
 
-
+    console.log(htmltest)
 
     return (
         <div>
@@ -92,7 +92,7 @@ export default function Perfomance(props) {
 
                                     <div class="d-flex justify-content-between">
                                         <p>{htmltest.length > 0 ? 'latest mark ' + htmltest[htmltest.length - 1].point : ''}</p>
-                                        <p>{htmltest.length > 0 ? '+' + (((htmltest[htmltest.length - 1].point - htmltest[htmltest.length - 2].point) / htmltest[htmltest.length - 2].point) * 100).toFixed(1) + '%' : ''}</p>
+                                        <p>{htmltest.length > 1 ? '+' + (((htmltest[htmltest.length - 1].point - htmltest[htmltest.length - 2].point) / htmltest[htmltest.length - 2].point) * 100).toFixed(1) + '%' : `+0%`}</p>
                                     </div>
                                     <p class="text-black">Html</p>
                                     <div style={{ position: 'relative' }} class="wrapper w-100 mt-4">
@@ -146,7 +146,7 @@ export default function Perfomance(props) {
 
                                     <div class="d-flex justify-content-between">
                                         <p>{jstest.length > 0 ? 'latest mark ' + jstest[jstest.length - 1].point : 'latest mark 0'}</p>
-                                        <p>{jstest.length > 0 ? '+' + (((jstest[jstest.length - 1].point - jstest[jstest.length - 2].point) / jstest[jstest.length - 2].point) * 100).toFixed(1) + '%' : '+0%'}</p>
+                                        <p>{jstest.length > 1 ? '+' + (((jstest[jstest.length - 1].point - jstest[jstest.length - 2].point) / jstest[jstest.length - 2].point) * 100).toFixed(1) + '%' : `+0%`}</p>
                                     </div>
                                     <p class="text-black">JavaScript</p>
                                     <div style={{ position: 'relative' }} class="wrapper w-100 mt-4">
@@ -191,7 +191,7 @@ export default function Perfomance(props) {
 
                                     <div class="d-flex justify-content-between">
                                         <p>{cplusplustest.length > 0 ? 'latest mark ' + cplusplustest[cplusplustest.length - 1].point : 'latest mark 0'}</p>
-                                        <p>{cplusplustest.length > 0 ? '+' + (((cplusplustest[cplusplustest.length - 1].point - cplusplustest[cplusplustest.length - 2].point) / cplusplustest[cplusplustest.length - 2].point) * 100).toFixed(1) + '%' : '+0%'}</p>
+                                        <p>{cplusplustest.length > 1 ? '+' + (((cplusplustest[cplusplustest.length - 1].point - cplusplustest[cplusplustest.length - 2].point) / cplusplustest[cplusplustest.length - 2].point) * 100).toFixed(1) + '%' : `+$0%`}</p>
                                     </div>
                                     <p class="text-black">C++</p>
                                     <div style={{ position: 'relative' }} class="wrapper w-100 mt-4">
@@ -235,7 +235,7 @@ export default function Perfomance(props) {
 
                                     <div class="d-flex justify-content-between">
                                         <p>{pythontest.length > 0 ? 'latest mark ' + pythontest[pythontest.length - 1].point : 'latest mark 0'}</p>
-                                        <p>{pythontest.length > 0 ? '+' + (((pythontest[pythontest.length - 1].point - pythontest[pythontest.length - 2].point) / pythontest[pythontest.length - 2].point) * 100).toFixed(1) + '%' : '+0%'}</p>
+                                        <p>{pythontest.length > 1 ? '+' + (((pythontest[pythontest.length - 1].point - pythontest[pythontest.length - 2].point) / pythontest[pythontest.length - 2].point) * 100).toFixed(1) + '%' : `+0%`}</p>
                                     </div>
                                     <p class="text-black">Python</p>
                                     <div style={{ position: 'relative' }} class="wrapper w-100 mt-4">
