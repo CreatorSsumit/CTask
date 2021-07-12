@@ -103,6 +103,11 @@ function Dashboard(props) {
                                                 <span class="grid-tittle">Quiz</span>
                                             </a>
 
+                                            <a style={{ cursor: 'pointer' }} onClick={() => setquiz(true)} class="dropdown-grid">
+                                                <i class="mdi mdi-bullseye link-icon"></i>
+                                                <span class="grid-tittle">Export</span>
+                                            </a>
+
                                         </div></center>
 
                                 </ul>
@@ -132,26 +137,26 @@ function Dashboard(props) {
                     <ul class="navigation-menu">
                         <li style={{ background: '#efefef' }} class="nav-category-divider">MAIN</li>
                         <li>
-                            <a style={{ cursor: 'pointer' }} >
-                                <span onClick={() => setquiz(false)} class="link-title">Dashboard</span>
+                            <a onClick={() => setquiz(false)} style={{ cursor: 'pointer' }} >
+                                <span class="link-title">Dashboard</span>
                                 <i class="mdi mdi-gauge link-icon"></i>
                             </a>
                         </li>
                         <li>
-                            <a style={{ cursor: 'pointer' }}>
-                                <span onClick={() => setquiz(true)} class="link-title">Quiz Test</span>
+                            <a onClick={() => setquiz(true)} style={{ cursor: 'pointer' }}>
+                                <span class="link-title">Quiz Test</span>
 
                                 <i class="mdi mdi-clipboard-outline link-icon"></i>
                             </a>
                         </li>
                         <li>
                             <a >
-                                <span class="link-title">UI Elements</span>
+                                <span class="link-title">Export Performance to Pdf</span>
                                 <i class="mdi mdi-bullseye link-icon"></i>
                             </a>
 
                         </li>
-                        <li>
+                        {/*   <li>
                             <a href="pages/forms/form-elements.html">
                                 <span class="link-title">Forms</span>
                                 <i class="mdi mdi-clipboard-outline link-icon"></i>
@@ -162,7 +167,7 @@ function Dashboard(props) {
                                 <span class="link-title">Charts</span>
                                 <i class="mdi mdi-chart-donut link-icon"></i>
                             </a>
-                        </li>
+                        </li> */}
 
                     </ul>
 
@@ -192,7 +197,7 @@ function Dashboard(props) {
 
             </div>
 
-        </div>
+        </div >
     )
 }
 
