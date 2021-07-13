@@ -1,6 +1,7 @@
 import React from 'react';
 import { Line } from "react-chartjs-2";
 import './admin.css';
+import profile from "../../assets/images/profile/male/image_1.png";
 
 export default function Admindashboard(props) {
     return (
@@ -12,7 +13,7 @@ export default function Admindashboard(props) {
                 {/* <div class="t-header-brand-wrapper">
 
                 </div> */}
-                <div style={{ background: '#efefef' }} class="t-header-content-wrapper">
+                <div style={{ background: '#f3f3f3' }} class="t-header-content-wrapper">
                     <div class="t-header-content">
                         <img src='https://www.drupal.org/files/Capgemini_Logo_2COL_RGB.png' style={{ width: '170px' }} />
 
@@ -37,12 +38,12 @@ export default function Admindashboard(props) {
                                             </a>
                                             <a style={{ cursor: 'pointer' }} class="dropdown-grid">
                                                 <i class="mdi mdi-clipboard-outline link-icon"></i>
-                                                <span class="grid-tittle">Quiz</span>
+                                                <span class="grid-tittle"> Users Permissions</span>
                                             </a>
 
                                             <a style={{ cursor: 'pointer' }} class="dropdown-grid">
                                                 <i class="mdi mdi-bullseye link-icon"></i>
-                                                <span class="grid-tittle">Export</span>
+                                                <span class="grid-tittle">Notification</span>
                                             </a>
 
                                         </div></center>
@@ -60,11 +61,11 @@ export default function Admindashboard(props) {
             </nav>
             <div class="page-body">
 
-                <div style={{ background: '#efefef' }} class="sidebar">
+                <div style={{ background: '#f3f3f3' }} class="sidebar">
                     <div class="user-profile">
                         <div class="display-avatar animated-avatar">
                             <img class="profile-img img-lg rounded-circle"
-                                alt="profile image" />
+                                alt="profile image" src={profile} />
                         </div>
                         <div class="info-wrapper">
                             <p class="user-name">sumit</p>
@@ -72,7 +73,7 @@ export default function Admindashboard(props) {
                         </div>
                     </div>
                     <ul class="navigation-menu">
-                        <li style={{ background: '#efefef' }} class="nav-category-divider">MAIN</li>
+                        <li style={{ background: '#f3f3f3' }} class="nav-category-divider">MAIN</li>
                         <li>
                             <a style={{ cursor: 'pointer' }} >
                                 <span class="link-title">Dashboard</span>
@@ -81,14 +82,14 @@ export default function Admindashboard(props) {
                         </li>
                         <li>
                             <a style={{ cursor: 'pointer' }}>
-                                <span class="link-title">Quiz Test</span>
+                                <span class="link-title "> Users Permissions</span>
 
                                 <i class="mdi mdi-clipboard-outline link-icon"></i>
                             </a>
                         </li>
                         <li>
                             <a >
-                                <span class="link-title">Export In Pdf</span>
+                                <span class="link-title">Notification</span>
                                 <i class="mdi mdi-bullseye link-icon"></i>
                             </a>
 
@@ -111,12 +112,12 @@ export default function Admindashboard(props) {
                 </div>
 
 
-                <div class="page-content-wrapper">
+                <div style={{ backgroundColor: '#' }} class="page-content-wrapper">
 
                     <div class='md:flex sm-block wrapper w-100 mt-4'>
                         <div style={{ position: 'relative' }} class="col-6 col-md-6 equel-grid ">
                             <div class="grid">
-                                <div class="grid-body d-flex flex-column h-100">
+                                <div style={{ backgroundColor: 'white', borderRadius: '10px' }} class="grid-body d-flex flex-column h-100">
                                     <div class="wrapper">
                                         <div class="d-flex justify-content-between">
                                             <div class="split-header">
@@ -170,7 +171,7 @@ export default function Admindashboard(props) {
                         </div>
                         <div class="col-6 col-md-6 equel-grid">
                             <div class="grid">
-                                <div class="grid-body">
+                                <div style={{ backgroundColor: 'white', borderRadius: '10px' }} class="grid-body">
                                     <div class="split-header">
                                         <p class="card-title"> Recent Activity Log</p>
 
@@ -216,136 +217,183 @@ export default function Admindashboard(props) {
 
                     <div class="col-lg-12">
                         <div class="grid">
-                            <p class="grid-header">Image&Components Table</p>
-                            <div class="item-wrapper">
-                                <div class="table-responsive">
-                                    <table class="table table-hover">
+                            <p class="grid-header">User Performances</p>
+                            <div style={{ overflowX: 'scroll' }} class="item-wrapper">
+                                <div class="table-responsive overflow-auto">
+                                    <table class="table border-none">
                                         <thead>
                                             <tr>
-                                                <th>User</th>
-                                                <th>Progress</th>
-                                                <th>Earnings</th>
-                                                <th>Target</th>
-                                                <th>Points</th>
-                                                <th>Sales</th>
-                                                <th>Started</th>
-                                                <th>Deadline</th>
-                                                <th></th>
+                                                <th>Profile Pic</th>
+                                                <th>Detail</th>
+                                                <th>Total Points</th>
+                                                <th>Html Points</th>
+                                                <th>JavaScript Points</th>
+                                                <th>C++ Points</th>
+                                                <th>Python Points</th>
+                                                <th>Joining date</th>
+
+
+
+
+
+
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
 
                                                 <td class="pr-0 pl-4">
-                                                    <img class="profile-img img-sm" src="../assets/images/profile/male/image_4.png"
+                                                    <img class="profile-img img-sm" src={profile}
                                                         alt="profile image" />
                                                 </td>
                                                 <td class="pl-md-0">
                                                     <small class="text-black font-weight-medium d-block">Barbara Curtis</small>
                                                     <span class="text-gray">
-                                                        <span class="status-indicator rounded-indicator small bg-primary"></span>Account Deactivated
+                                                        <span class="status-indicator rounded-indicator small bg-primary"></span>Activated
                                                     </span>
                                                 </td>
-                                                <td>
-                                                    <div class="progress progress-slim">
-                                                        <div class="progress-bar bg-info progress-bar-striped" role="progressbar" style={{ width: "35%" }} aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
+
+                                                <td class="text-success">563 &nbsp;  15.67% <i class="mdi mdi-arrow-up"></i></td>
+                                                <td class="text-success">700 &nbsp;  15.67% <i class="mdi mdi-arrow-up"></i></td>
+                                                <td class="text-success"> 86 &nbsp;  15.67%  <i class="mdi mdi-arrow-up"></i>
                                                 </td>
-                                                <td>$23,563</td>
-                                                <td>$30,000</td>
-                                                <td>3454</td>
-                                                <td class="text-success"> 15.67% <i class="mdi mdi-arrow-up"></i>
+                                                <td class="text-success"> 86 &nbsp; 15.67% <i class="mdi mdi-arrow-up"></i>
                                                 </td>
-                                                <td>Jul 12, 2019 </td>
+                                                <td class="text-danger">86 &nbsp; 23.05% <i class="mdi mdi-arrow-down"></i> </td>
                                                 <td>Jar 23, 2019 </td>
-                                                <td class="actions">
-                                                    <i class="mdi mdi-dots-vertical"></i>
+                                                <td style={{ cursor: 'pointer' }} class="actions">
+                                                    <img style={{ width: '15px' }} src='https://maxcdn.icons8.com/Share/icon/Dusk_Wired/Editing/edit1600.png' />
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="d-flex align-items-center">
-                                                    <img class="profile-img img-sm img-rounded mr-2" src="../../../assets/images/profile/male/image_7.png" alt="profile image" />
-                                                    <span>Curtis Greer</span>
+
+                                                <td class="pr-0 pl-4">
+                                                    <img class="profile-img img-sm" src={profile}
+                                                        alt="profile image" />
                                                 </td>
-                                                <td>
-                                                    <div class="progress progress-slim">
-                                                        <div class="progress-bar bg-success progress-bar-striped" role="progressbar" style={{ width: "25%" }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
+                                                <td class="pl-md-0">
+                                                    <small class="text-black font-weight-medium d-block">Barbara Curtis</small>
+                                                    <span class="text-gray">
+                                                        <span class="status-indicator rounded-indicator small bg-primary"></span>Activated
+                                                    </span>
                                                 </td>
-                                                <td>$14,435</td>
-                                                <td>$30,000</td>
-                                                <td>3454</td>
-                                                <td class="text-danger"> 23.05% <i class="mdi mdi-arrow-down"></i>
+
+                                                <td class="text-success">563 &nbsp;  15.67% <i class="mdi mdi-arrow-up"></i></td>
+                                                <td class="text-success">700 &nbsp;  15.67% <i class="mdi mdi-arrow-up"></i></td>
+                                                <td class="text-success"> 86 &nbsp;  15.67%  <i class="mdi mdi-arrow-up"></i>
                                                 </td>
-                                                <td>Jul 12, 2019 </td>
-                                                <td> May 15, 2019 </td>
-                                                <td class="actions">
-                                                    <i class="mdi mdi-dots-vertical"></i>
+                                                <td class="text-success"> 86 &nbsp; 15.67% <i class="mdi mdi-arrow-up"></i>
                                                 </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="d-flex align-items-center">
-                                                    <img class="profile-img img-sm img-rounded mr-2" src="../../../assets/images/profile/female/image_10.png" alt="profile image" />
-                                                    <span>Lettie Phillips</span>
-                                                </td>
-                                                <td>
-                                                    <div class="progress progress-slim">
-                                                        <div class="progress-bar bg-primary progress-bar-striped" role="progressbar" style={{ width: "55%" }} aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </td>
-                                                <td>$16,745</td>
-                                                <td>$30,000</td>
-                                                <td>3454</td>
-                                                <td class="text-success"> 23.05% <i class="mdi mdi-arrow-up"></i>
-                                                </td>
-                                                <td>Jul 12, 2019 </td>
-                                                <td> May 15, 2019 </td>
-                                                <td class="actions">
-                                                    <i class="mdi mdi-dots-vertical"></i>
+                                                <td class="text-danger">86 &nbsp; 23.05% <i class="mdi mdi-arrow-down"></i> </td>
+                                                <td>Jar 23, 2019 </td>
+                                                <td style={{ cursor: 'pointer' }} class="actions">
+                                                    <img style={{ width: '15px' }} src='https://maxcdn.icons8.com/Share/icon/Dusk_Wired/Editing/edit1600.png' />
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="d-flex align-items-center">
-                                                    <img class="profile-img img-sm img-rounded mr-2" src="../../../assets/images/profile/female/image_1.png" alt="profile image" />
-                                                    <span>Rachel Garza</span>
+
+                                                <td class="pr-0 pl-4">
+                                                    <img class="profile-img img-sm" src={profile}
+                                                        alt="profile image" />
                                                 </td>
-                                                <td>
-                                                    <div class="progress progress-slim">
-                                                        <div class="progress-bar bg-danger progress-bar-striped" role="progressbar" style={{ width: "45%" }} aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
+                                                <td class="pl-md-0">
+                                                    <small class="text-black font-weight-medium d-block">Barbara Curtis</small>
+                                                    <span class="text-gray">
+                                                        <span class="status-indicator rounded-indicator small bg-primary"></span>Activated
+                                                    </span>
                                                 </td>
-                                                <td>$34,546</td>
-                                                <td>$30,000</td>
-                                                <td>3454</td>
-                                                <td class="text-success"> 67.23% <i class="mdi mdi-arrow-up"></i>
+
+                                                <td class="text-success">563 &nbsp;  15.67% <i class="mdi mdi-arrow-up"></i></td>
+                                                <td class="text-success">700 &nbsp;  15.67% <i class="mdi mdi-arrow-up"></i></td>
+                                                <td class="text-success"> 86 &nbsp;  15.67%  <i class="mdi mdi-arrow-up"></i>
                                                 </td>
-                                                <td>Jul 12, 2019 </td>
-                                                <td>Apr 06, 2019 </td>
-                                                <td class="actions">
-                                                    <i class="mdi mdi-dots-vertical"></i>
+                                                <td class="text-success"> 86 &nbsp; 15.67% <i class="mdi mdi-arrow-up"></i>
+                                                </td>
+                                                <td class="text-danger">86 &nbsp; 23.05% <i class="mdi mdi-arrow-down"></i> </td>
+                                                <td>Jar 23, 2019 </td>
+                                                <td style={{ cursor: 'pointer' }} class="actions">
+                                                    <img style={{ width: '15px' }} src='https://maxcdn.icons8.com/Share/icon/Dusk_Wired/Editing/edit1600.png' />
                                                 </td>
                                             </tr>
+
                                             <tr>
-                                                <td class="d-flex align-items-center">
-                                                    <img class="profile-img img-sm img-rounded mr-2" src="../../../assets/images/profile/male/image_3.png" alt="profile image" />
-                                                    <span>Estelle Guzman</span>
+
+                                                <td class="pr-0 pl-4">
+                                                    <img class="profile-img img-sm" src={profile}
+                                                        alt="profile image" />
                                                 </td>
-                                                <td>
-                                                    <div class="progress progress-slim">
-                                                        <div class="progress-bar bg-warning progress-bar-striped" role="progressbar" style={{ width: "35%" }} aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
+                                                <td class="pl-md-0">
+                                                    <small class="text-black font-weight-medium d-block">Barbara Curtis</small>
+                                                    <span class="text-gray">
+                                                        <span class="status-indicator rounded-indicator small bg-primary"></span>Activated
+                                                    </span>
                                                 </td>
-                                                <td>$23,657</td>
-                                                <td>$30,000</td>
-                                                <td>3454</td>
-                                                <td class="text-danger"> 12.45% <i class="mdi mdi-arrow-down"></i>
+
+                                                <td class="text-success">563 &nbsp;  15.67% <i class="mdi mdi-arrow-up"></i></td>
+                                                <td class="text-success">700 &nbsp;  15.67% <i class="mdi mdi-arrow-up"></i></td>
+                                                <td class="text-success"> 86 &nbsp;  15.67%  <i class="mdi mdi-arrow-up"></i>
                                                 </td>
-                                                <td>Jul 12, 2019 </td>
-                                                <td>Jul 12, 2019 </td>
-                                                <td class="actions">
-                                                    <i class="mdi mdi-dots-vertical"></i>
+                                                <td class="text-success"> 86 &nbsp; 15.67% <i class="mdi mdi-arrow-up"></i>
+                                                </td>
+                                                <td class="text-danger">86 &nbsp; 23.05% <i class="mdi mdi-arrow-down"></i> </td>
+                                                <td>Jar 23, 2019 </td>
+                                                <td style={{ cursor: 'pointer' }} class="actions">
+                                                    <img style={{ width: '15px' }} src='https://maxcdn.icons8.com/Share/icon/Dusk_Wired/Editing/edit1600.png' />
                                                 </td>
                                             </tr>
+
+                                            <tr>
+
+                                                <td class="pr-0 pl-4">
+                                                    <img class="profile-img img-sm" src={profile}
+                                                        alt="profile image" />
+                                                </td>
+                                                <td class="pl-md-0">
+                                                    <small class="text-black font-weight-medium d-block">Barbara Curtis</small>
+                                                    <span class="text-gray">
+                                                        <span class="status-indicator rounded-indicator small bg-primary"></span>Activated
+                                                    </span>
+                                                </td>
+
+                                                <td class="text-success">563 &nbsp;  15.67% <i class="mdi mdi-arrow-up"></i></td>
+                                                <td class="text-success">700 &nbsp;  15.67% <i class="mdi mdi-arrow-up"></i></td>
+                                                <td class="text-success"> 86 &nbsp;  15.67%  <i class="mdi mdi-arrow-up"></i>
+                                                </td>
+                                                <td class="text-success"> 86 &nbsp; 15.67% <i class="mdi mdi-arrow-up"></i>
+                                                </td>
+                                                <td class="text-danger">86 &nbsp; 23.05% <i class="mdi mdi-arrow-down"></i> </td>
+                                                <td>Jar 23, 2019 </td>
+                                                <td style={{ cursor: 'pointer' }} class="actions">
+                                                    <img style={{ width: '15px' }} src='https://maxcdn.icons8.com/Share/icon/Dusk_Wired/Editing/edit1600.png' />
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+
+                                                <td class="pr-0 pl-4">
+                                                    <img class="profile-img img-sm" src={profile}
+                                                        alt="profile image" />
+                                                </td>
+                                                <td class="pl-md-0">
+                                                    <small class="text-black font-weight-medium d-block">Barbara Curtis</small>
+                                                    <span class="text-gray">
+                                                        <span class="status-indicator rounded-indicator small bg-primary"></span>Activated
+                                                    </span>
+                                                </td>
+
+                                                <td class="text-success">563 &nbsp;  15.67% <i class="mdi mdi-arrow-up"></i></td>
+                                                <td class="text-success">700 &nbsp;  15.67% <i class="mdi mdi-arrow-up"></i></td>
+                                                <td class="text-success"> 86 &nbsp;  15.67%  <i class="mdi mdi-arrow-up"></i>
+                                                </td>
+                                                <td class="text-success"> 86 &nbsp; 15.67% <i class="mdi mdi-arrow-up"></i>
+                                                </td>
+                                                <td class="text-danger">86 &nbsp; 23.05% <i class="mdi mdi-arrow-down"></i> </td>
+                                                <td>Jar 23, 2019 </td>
+                                                <td style={{ cursor: 'pointer' }} class="actions">
+                                                    <img style={{ width: '15px' }} src='https://maxcdn.icons8.com/Share/icon/Dusk_Wired/Editing/edit1600.png' />
+                                                </td>
+                                            </tr>
+
                                         </tbody>
                                     </table>
                                 </div>
