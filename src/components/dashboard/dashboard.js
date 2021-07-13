@@ -31,6 +31,15 @@ function Dashboard(props) {
             answer: 'a'
         },
         {
+            type: 'cplusplus',
+            question: {
+                ques1: 'which option best describes your job role?',
+                options: ['a', 'b', 'c', 'd']
+            },
+
+            answer: 'a'
+        },
+        {
             type: 'js',
             question: {
                 ques1: 'which option best describes your job role?',
@@ -151,7 +160,7 @@ function Dashboard(props) {
                         </li>
                         <li>
                             <a >
-                                <span class="link-title">Export Performance to Pdf</span>
+                                <span class="link-title">Export In Pdf</span>
                                 <i class="mdi mdi-bullseye link-icon"></i>
                             </a>
 
