@@ -25,15 +25,20 @@ class LogIn extends Component {
     console.log(this.state.panel)
     return (
 
-      <section ststyle={{ background: '#f3f3f3' }} class="text-gray-600 body-font">
+      <section style={{ background: '#f3f3f3' }} class="text-gray-600 body-font">
         <div style={{ height: '100vh' }} class="container flex md:flex-row flex-col items-center">
           <div class="lg:flex-grow mt-10 md:px-0 sm:px-0 px-10 mx-auto md:w-1/2 lg:pr-24 md:pr-16 flex flex-col  mb-16 md:mb-0  text-center">
             <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900"> Login yourself to view dashboard </h1>
             <p class="mb-8 leading-relaxed"> Man braid swag typewriter affogato, hella selvage wolf narwhal dreamcatcher.</p>
 
-            {this.props.newuser ? <div class="alert alert-success" role="alert">
-              {this.props.newuser}
+            {this.props.msg ? <div class="alert alert-success" role="alert">
+              {this.props.msg ? this.props.msg : ''}
             </div> : ''}
+
+            {this.props.newuser ? <div class="alert alert-success" role="alert">
+              {this.props.newuser ? this.props.newuser : ''}
+            </div> : ''}
+
 
             <small className='mb-4 text-danger'>{this.state.panel} is selected to continue </small>
             <div className="flex justify-evenly">
@@ -85,9 +90,9 @@ const mapDispatchToProps = ({
 })
 
 function mapStateToProps(state) {
-  console.log(state)
-  return {
 
+  return {
+    msg: state.data.registererror
   }
 }
 

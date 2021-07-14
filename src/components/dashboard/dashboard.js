@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from "react-router-dom"
 
+
 import '../../assets/vendors/iconfonts/mdi/css/materialdesignicons.css';
 import profile from "../../assets/images/profile/male/image_1.png";
 import Quiz from "../test/quiz"
@@ -101,6 +102,11 @@ function Dashboard(props) {
                                     <div style={{ background: 'none' }} class="dropdown-header">
                                         <h6 class="dropdown-title">Dashboard</h6>
                                         <p class="dropdown-title-text mt-2">Explore your test performance</p>
+
+                                        <a style={{ cursor: 'pointer' }} onClick={() => { localStorage.clear(); history.push('/login'); localStorage.clear(); }} class="dropdown-grid">
+
+                                            <button type="button" class="btn btn-info btn-sm">LogOut</button>
+                                        </a>
                                     </div><center>
                                         <div style={{ background: 'none' }} class="dropdown-body border-top pt-0">
                                             <a style={{ cursor: 'pointer' }} onClick={() => setquiz(false)} class="dropdown-grid">
@@ -116,6 +122,7 @@ function Dashboard(props) {
                                                 <i class="mdi mdi-bullseye link-icon"></i>
                                                 <span class="grid-tittle">Export</span>
                                             </a>
+
 
                                         </div></center>
 

@@ -72,11 +72,8 @@ class Register extends Component {
             <p class="mb-8 leading-relaxed"> Man braid swag typewriter affogato, hella selvage wolf narwhal dreamcatcher.</p>
 
             {this.props.msg ? <div class="alert alert-success" role="alert">
-              {this.props.msg ? this.props.msg : ''}
-            </div> : <div>   {this.props.successmsg ? <div class="alert alert-success" role="alert">
-              {this.props.successmsg ? this.props.successmsg : ''}
-            </div> : ''}</div>}
-
+              {this.props.msg ? this.props.msg : 'Server Problem'}
+            </div> : ''}
 
             <div className="flex justify-evenly">
               {/* <button class="w-39 sm:w-40 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white  text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">Admin</button> */}
