@@ -13,7 +13,7 @@ const Admin = require("./admin");
 const app = express();
 app.use(
   cors({
-    origin: "http://examperformance.herokuapp.com/", // <-- location of the react app were connecting to
+    origin: "http://localhost:3000", // <-- location of the react app were connecting to
     credentials: true,
   })
 );
@@ -21,7 +21,7 @@ app.use(
 // mongodb+srv://capgemini:capgemini@cluster0.wxqs3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 //----------------------------------------- END OF IMPORTS---------------------------------------------------
 mongoose.connect(
-  'mongodb+srv://capgemini:capgemini@cluster0.wxqs3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+  'mongodb://localhost/cap', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 },
