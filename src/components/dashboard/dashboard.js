@@ -101,11 +101,11 @@ function Dashboard(props) {
                                 <ul style={{ backgroundColor: 'white', borderRadius: '10px', border: 'none' }} class="dropdown-menu navbar-dropdown dropdown-menu-right" aria-labelledby="appsDropdown">
                                     <div style={{ background: 'none' }} class="dropdown-header">
                                         <h6 class="dropdown-title">Dashboard</h6>
-                                        <p class="dropdown-title-text mt-2">Explore your test performance</p>
+                                        <p class="dropdown-title-text mt-2">Explore your Exam performance</p>
 
                                         <a style={{ cursor: 'pointer' }} onClick={() => { localStorage.clear(); history.push('/login'); localStorage.clear(); }} class="dropdown-grid">
 
-                                            <button type="button" class="btn btn-info btn-sm">LogOut</button>
+                                            <button style={{ background: '#459DF9' }} type="button" class="btn btn-info btn-sm">LogOut</button>
                                         </a>
                                     </div><center>
                                         <div style={{ background: 'none' }} class="dropdown-body border-top pt-0">
@@ -172,13 +172,13 @@ function Dashboard(props) {
                             </a>
 
                         </li>
-                        {/*   <li>
-                            <a href="pages/forms/form-elements.html">
-                                <span class="link-title">Forms</span>
-                                <i class="mdi mdi-clipboard-outline link-icon"></i>
+                        <li>
+                            <a style={{ cursor: 'pointer' }} onClick={() => { localStorage.clear(); history.push('/login'); localStorage.clear(); }} class="dropdown-grid">
+
+                                <button style={{ background: '#459DF9' }} type="button" class="btn btn-info w-full">LogOut</button>
                             </a>
                         </li>
-                        <li>
+                        {/*  <li>
                             <a href="pages/charts/chartjs.html">
                                 <span class="link-title">Charts</span>
                                 <i class="mdi mdi-chart-donut link-icon"></i>
