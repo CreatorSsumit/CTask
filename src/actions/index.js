@@ -4,7 +4,7 @@ var url = 'http://localhost:4000'
 export const registeruser = (state) => dispatch => {
 
     const { username, password, panel } = state;
-    console.log(state)
+
 
     axios({
         method: "POST",
@@ -16,6 +16,8 @@ export const registeruser = (state) => dispatch => {
         withCredentials: true,
         url: `${url}/register/${panel}`,
     }).then((res) => {
+
+
 
 
         if (res.data.error) {

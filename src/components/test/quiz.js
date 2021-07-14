@@ -6,7 +6,7 @@ import './quiz.css';
 function Quiz(props) {
 
 
-    const [timeralert, settimeralert] = useState(props.state.data.profile.msg);
+
     const [point, setpoint] = useState(0)
     const [queslist, setqueslist] = useState('');
     const [type, settype] = useState('html');
@@ -29,6 +29,8 @@ function Quiz(props) {
     }
 
 
+
+
     var timeer = 1;
 
     useEffect(() => {
@@ -37,21 +39,22 @@ function Quiz(props) {
             if (type === 'html' && props.profile.htmlquiz.status) {
                 var ht = props.list.filter((e) => e.type === 'html')
                 setqueslist(ht)
-            } else {
-
-                setqueslist('')
             }
-            if (type === 'js' && props.profile.jsquiz.status) {
+            else if (type === 'js' && props.profile.jsquiz.status) {
                 var jst = props.list.filter((e) => e.type === 'js')
                 setqueslist(jst)
             }
-            if (type === 'cplusplus' && props.profile.cplusplusquiz.status) {
+            else if (type === 'cplusplus' && props.profile.cplusplusquiz.status) {
                 var ct = props.list.filter((e) => e.type === 'cplusplus')
                 setqueslist(ct)
             }
-            if (type === 'python' && props.profile.pythonquiz.status) {
+            else if (type === 'python' && props.profile.pythonquiz.status) {
                 var pt = props.list.filter((e) => e.type === 'python')
                 setqueslist(pt)
+            }
+            else {
+
+                setqueslist('')
             }
         }
 
@@ -100,7 +103,9 @@ function Quiz(props) {
 
 
                 </div>
-                <div class="ml-auto mr-sm-5"> <button onClick={() => sendresult()} class="btn btn-success">Submit</button> </div>
+                {queslist ? <div class="ml-auto mr-sm-5"> <button onClick={() => sendresult()} class="btn btn-success">Submit</button> </div>
+                    : " "}
+
 
             </div>
 
@@ -112,11 +117,17 @@ function Quiz(props) {
                     </div>
 
                 </div>)
-            })}</> : 'No Quiz Found'}
+            })}</> : <div class="alert alert-danger mt-5 d-flex" role="alert">
+                <img class='mr-5 ' style={{ width: '15px', height: '15px' }} src="https://th.bing.com/th/id/R.1bca16af4fbd29d8f8e4ea5aeb69a0aa?rik=DOpIyeakqJrj8g&riu=http%3a%2f%2ficons.iconarchive.com%2ficons%2fcustom-icon-design%2fmono-general-1%2f512%2falert-icon.png&ehk=2%2fAB7cTvZLS7BQ03EaUlJZsTdw0q2IcROskaOBrh9m8%3d&risl=&pid=ImgRaw" /> You are Restricted to give that Exam until admin Permissions
+            </div>
+            }
 
             <div class="d-flex align-items-center pt-3">
 
-                <div class="ml-auto mr-sm-5"> <button onClick={() => sendresult()} class="btn btn-success">Submit</button> </div>
+                {queslist ? <div class="ml-auto mr-sm-5"> <button onClick={() => sendresult()} class="btn btn-success">Submit</button> </div>
+                    : " "}
+
+
             </div>
 
         </div>

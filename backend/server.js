@@ -110,7 +110,7 @@ app.post("/register/user", (req, res) => {
 
       await newUser.save();
 
-      res.json({ data: req.user, isAuthenticate: true, msg: 'Authenticated Successfully' })
+      res.json({ data: req.user, isAuthenticate: true, msg: 'Thanku for Register . Go to login page' })
 
     }
   });

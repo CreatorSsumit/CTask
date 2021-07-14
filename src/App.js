@@ -32,13 +32,13 @@ class App extends Component {
                     <div>
 
                         <Switch>
-                            <Route exact path="/" render={(props) => this.state.isAuthenticated ? <Redirect to={{ pathname: '/dashboard', state: { from: this.props.location } }} /> : <Redirect to={{ pathname: '/login', state: { from: this.props.location } }} />} />
-                            <Route exact path="/register" render={(props) => this.props.isAuthenticated ? <Redirect to={{ pathname: '/login', state: { from: this.props.location } }} /> : <Register />} />
-                            <Route exact path="/registeradmin" render={(props) => this.props.isAuthenticated ? <Redirect to={{ pathname: '/admin', state: { from: this.props.location } }} /> : <Adminregister />} />
-                            <Route exact path="/admin" render={(props) => this.props.isAuthenticated ? <Admindashboard /> : <Adminregister />} />
-                            <Route exact path="/login" render={(props) => this.props.isAuthenticated ? <>{this.props.who === 'user' ? <Redirect to={{ pathname: '/dashboard', state: { from: this.props.location } }} /> : <> {this.props.who === 'admin' ? <Redirect to={{ pathname: '/admin', state: { from: this.props.location } }} /> : <LogIn newuser={'User created do login'} />} </>}
+                            <Route exact path="/" render={(props) => this.props.profileinfo ? <Redirect to={{ pathname: '/dashboard', state: { from: this.props.location } }} /> : <Redirect to={{ pathname: '/login', state: { from: this.props.location } }} />} />
+                            <Route exact path="/register" render={(props) => this.props.profileinfo ? <Redirect to={{ pathname: '/login', state: { from: this.props.location } }} /> : <Register />} />
+                            <Route exact path="/registeradmin" render={(props) => this.props.profileinfo ? <Redirect to={{ pathname: '/admin', state: { from: this.props.location } }} /> : <Adminregister />} />
+                            <Route exact path="/admin" render={(props) => this.props.profileinfo ? <Admindashboard /> : <Adminregister />} />
+                            <Route exact path="/login" render={(props) => this.props.profileinfo ? <>{this.props.who === 'user' ? <Redirect to={{ pathname: '/dashboard', state: { from: this.props.location } }} /> : <> {this.props.who === 'admin' ? <Redirect to={{ pathname: '/admin', state: { from: this.props.location } }} /> : <LogIn newuser={'User created do login'} />} </>}
                             </> : <LogIn {...props} />} />
-                            <Route exact path="/dashboard" render={(props) => this.props.isAuthenticated ? <Dashboard /> : <Redirect to={{ pathname: '/register', state: { from: this.props.location } }} />} />
+                            <Route exact path="/dashboard" render={(props) => this.props.profileinfo ? <Dashboard /> : <Redirect to={{ pathname: '/register', state: { from: this.props.location } }} />} />
 
                         </Switch>
 
@@ -53,6 +53,7 @@ function mapStateToProps(state) {
 
 
     return {
+        msg: state.data.msg,
         who: state.data.profile.who,
         profileinfo: state.data.profile.data,
         isAuthenticated: state.data.isAuthenticated
