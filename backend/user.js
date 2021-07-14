@@ -1,10 +1,16 @@
+const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const user = new mongoose.Schema({
   name: String,
   email: String,
   username: String,
   password: String,
-  test: []
+  test: [],
+  htmlquiz: {},
+  jsquiz: {},
+  cplusplusquiz: {},
+  pythonquiz: {},
+
 });
 
 module.exports = mongoose.model("User", user);

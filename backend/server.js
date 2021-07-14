@@ -101,6 +101,10 @@ app.post("/register/user", (req, res) => {
         email: req.body.username,
         username: req.body.username,
         password: hashedPassword,
+        htmlquiz: { type: 'html', status: true },
+        jsquiz: { type: 'js', status: false },
+        cplusplusquiz: { type: 'cplusplus', status: false },
+        pythonquiz: { type: 'python', status: false },
       });
 
 

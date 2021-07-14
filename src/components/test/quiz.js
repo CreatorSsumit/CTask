@@ -34,19 +34,22 @@ function Quiz(props) {
     useEffect(() => {
         if (props.list) {
 
-            if (type === 'html') {
+            if (type === 'html' && props.profile.htmlquiz.status) {
                 var ht = props.list.filter((e) => e.type === 'html')
                 setqueslist(ht)
+            } else {
+
+                setqueslist('')
             }
-            if (type === 'js') {
+            if (type === 'js' && props.profile.jsquiz.status) {
                 var jst = props.list.filter((e) => e.type === 'js')
                 setqueslist(jst)
             }
-            if (type === 'cplusplus') {
+            if (type === 'cplusplus' && props.profile.cplusplusquiz.status) {
                 var ct = props.list.filter((e) => e.type === 'cplusplus')
                 setqueslist(ct)
             }
-            if (type === 'python') {
+            if (type === 'python' && props.profile.pythonquiz.status) {
                 var pt = props.list.filter((e) => e.type === 'python')
                 setqueslist(pt)
             }
@@ -55,11 +58,8 @@ function Quiz(props) {
 
 
 
-    }, [props, type, queslist])
+    }, [props, type, props.profile])
 
-    if (timeralert) {
-
-    }
 
 
     const checkanswer = (result, data) => {
@@ -130,8 +130,11 @@ const mapDispatchToProps = ({
 
 function mapStateToProps(state) {
 
+
+
     return {
-        alertmsg: state.data.msg
+        alertmsg: state.data.msg,
+        profile: state.data.profile.data
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Quiz)
