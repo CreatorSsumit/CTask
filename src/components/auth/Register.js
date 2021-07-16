@@ -74,6 +74,9 @@ class Register extends Component {
             {this.props.msg ? <div class="alert alert-success" role="alert">
               {this.props.msg ? this.props.msg : 'Server Problem'}
             </div> : ''}
+            {this.props.newuser ? this.props.newuser.username ? <div class="alert alert-success" role="alert"> New User {this.props.newuser.username} is created , you can login </div> : " " : " "}
+
+
 
             <div className="flex justify-evenly">
               {/* <button class="w-39 sm:w-40 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white  text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">Admin</button> */}

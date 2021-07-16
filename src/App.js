@@ -34,13 +34,12 @@ class App extends Component {
 
                         <Switch>
                             <Route exact path="/" render={(props) => this.props.profileinfo ? <Redirect to={{ pathname: '/dashboard', state: { from: this.props.location } }} /> : <Redirect to={{ pathname: '/login', state: { from: this.props.location } }} />} />
-                            <Route exact path="/register" render={(props) => this.props.profileinfo ? <Redirect to={{ pathname: '/login', state: { from: this.props.location, newuser: 'User created do login' } }} /> : <Register />} />
+                            <Route exact path="/register" render={(props) => <Register newuser={this.props.profileinfo ? this.props.profileinfo : ""} />} />
                             <Route exact path="/registeradmin" render={(props) => this.props.profileinfo ? <Redirect to={{ pathname: '/admin', state: { from: this.props.location } }} /> : <Adminregister />} />
 
-                            <Route exact path="/admin" render={(props) => this.props.profileinfo ? <Admindashboard /> : <Adminregister />} />
+                            <Route exact path="/admin" render={(props) => this.props.profileinfo && localStorage.getItem('user') ? <Admindashboard /> : <Adminregister />} />
                             <Route exact path="/login" render={(props) => (localStorage.getItem('user')) ? <>{this.props.who === 'user' ? <Redirect to={{ pathname: '/dashboard', state: { from: this.props.location } }} /> : <> {this.props.who === 'admin' ? <Redirect to={{ pathname: '/admin', state: { from: this.props.location } }} /> : <LogIn />} </>}
-                            </> : this.props.profileinfo.username ? <LogIn newuser={this.props.profileinfo ? this.props.profileinfo.username ? 'User created do login' :
-                                " " : " "}    {...props} /> : <LogIn />} />
+                            </> : <LogIn />} />
                             <Route exact path="/dashboard" render={(props) => this.props.profileinfo && localStorage.getItem('user') ? <Dashboard /> : <Redirect to={{ pathname: '/register', state: { from: this.props.location } }} />} />
                             <Route exact path="/logout" render={() => <Redirect to={{ pathname: '/login' }} />} />
 

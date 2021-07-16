@@ -35,7 +35,9 @@ class LogIn extends Component {
 
             {this.props.msg ? <div class="alert alert-success" role="alert">
               {this.props.msg ? this.props.msg : ''}
-            </div> : ''}
+            </div> : ""}
+
+
 
 
             <div className='m-3'><p className='text-success font-weight-bold' style={{ fontFamily: 'Roboto' }}>
