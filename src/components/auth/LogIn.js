@@ -22,7 +22,9 @@ class LogIn extends Component {
   render() {
 
 
-    console.log(this.state.panel)
+
+    console.log(this.props)
+
     return (
 
       <section style={{ background: '#f3f3f3' }} class="text-gray-600 body-font">
@@ -35,11 +37,10 @@ class LogIn extends Component {
               {this.props.msg ? this.props.msg : ''}
             </div> : ''}
 
-            {this.props.newuser ? <div class="alert alert-success" role="alert">
-              {this.props.newuser ? this.props.newuser : ''}
-            </div> : ''}
 
-
+            <div className='m-3'><p className='text-success font-weight-bold' style={{ fontFamily: 'Roboto' }}>
+              {this.props.newuser ? `${this.props.newuser}` : this.props.location ? <div class="alert alert-success" role="alert">  {this.props.location.state.newuser} </div> : " "
+              }</p></div>
             <small className='mb-4 text-danger'>{this.state.panel} is selected to continue </small>
             <div className="flex justify-evenly">
 
