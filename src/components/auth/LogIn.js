@@ -69,7 +69,7 @@ class LogIn extends Component {
 
 
               </div>
-              <p class="text-sm mt-5 text-gray-500 w-full " style={{ color: '#F87171', fontWeight: 'bold' }}><Link style={{ textDecoration: 'none' }} to={'/register'}>Create new Account</Link></p>
+              <p onClick={() => localStorage.clear()} class="text-sm mt-5 text-gray-500 w-full " style={{ color: '#F87171', fontWeight: 'bold' }}><Link style={{ textDecoration: 'none' }} to={'/register'}>Create new Account</Link></p>
 
               <button type='submit' class="w-100  text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Login</button>
             </form>
