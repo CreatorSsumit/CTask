@@ -1,5 +1,5 @@
 import axios from "axios";
-var url = 'http://localhost:4000'
+var url = 'http://capgeminibackend.herokuapp.com/'
 
 export const registeruser = (state) => dispatch => {
 
