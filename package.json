@@ -27,7 +27,7 @@
   "scripts": {
     "server": "cd backend  && yarn start",
     "client": "react-scripts start",
-    "start": "concurrently  \"npm run client\""
+    "start": "concurrently \"npm run server\" \"npm run client\""
   },
   "eslintConfig": {
     "extends": [
