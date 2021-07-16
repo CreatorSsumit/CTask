@@ -40,7 +40,7 @@ class LogIn extends Component {
 
 
 
-            <div className='m-3'><p className='text-success font-weight-bold' style={{ fontFamily: 'Roboto' }}>
+            <div className='m-1'><p className='text-success font-weight-bold' style={{ fontFamily: 'Roboto' }}>
               {this.props.newuser ? `${this.props.newuser}` : this.props.location ? <div class="alert alert-success" role="alert">  {this.props.location.state.newuser} </div> : " "
               }</p></div>
             <small className='mb-4 text-danger'>{this.state.panel} is selected to continue </small>
