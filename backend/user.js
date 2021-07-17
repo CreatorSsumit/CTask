@@ -10,6 +10,7 @@ const user = new mongoose.Schema({
   jsquiz: {},
   cplusplusquiz: {},
   pythonquiz: {},
+  date: Date
 
 });
 

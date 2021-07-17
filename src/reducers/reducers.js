@@ -9,7 +9,7 @@ const initialstate = {
 
 const Reducers = (state = initialstate, action) => {
 
-    console.log(action.type)
+
 
     switch (action.type) {
 
@@ -30,6 +30,9 @@ const Reducers = (state = initialstate, action) => {
 
 
             return { ...state, registererror: null, isAuthenticated: action.payload.isAuthenticate, who: action.payload.who, profile: action.payload, msg: action.payload.msg }
+
+
+
 
         default:
             return state

@@ -25,7 +25,7 @@ class App extends Component {
 
 
     render() {
-        console.log(this.props.profileinfo);
+
         return (
 
             <div className="App">

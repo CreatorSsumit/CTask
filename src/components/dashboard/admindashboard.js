@@ -1,9 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Line } from "react-chartjs-2";
 import './admin.css';
 import profile from "../../assets/images/profile/male/image_1.png";
+import { connect } from "react-redux";
+import axios from 'axios'
 
-export default function Admindashboard(props) {
+
+
+function Admindashboard(props) {
+
+    const [alldatas, setalldatas] = useState('');
+
+
+
+    var fetchdata = () => {
+
+        axios.get('http://localhost:4000/alluserkeyvalue').then(e => e.data ? setalldatas(e.data) : [])
+
+
+    }
+
+
+    useEffect(() => {
+
+        fetchdata();
+
+
+    }, []);
+
+    if (alldatas) {
+        console.log(alldatas.alldata.length)
+    }
+
     return (
         <div>
 
@@ -128,17 +156,17 @@ export default function Admindashboard(props) {
 
                                         </div>
                                         <div class="d-flex align-items-end pt-2 mb-4">
-                                            <h4>16</h4>
-                                            <p class="ml-2 text-muted">Total User Registered</p>
+
+                                            <p class="ml-2 text-muted">Total <span className='font-weight-bold text-primary'>{alldatas ? alldatas.alldata.length : 0}</span> User Registered</p>
                                         </div>
                                     </div>
                                     <div class="mt-auto">
 
                                         <Line class='linebar' data={{
-                                            labels: 'jhgfc',
+                                            labels: alldatas ? Object.keys(alldatas.count).reverse() : [],
                                             datasets: [{
                                                 label: 'My First Dataset',
-                                                data: [65, 59, 80, 81, 56, 55, 40],
+                                                data: alldatas ? Object.values(alldatas.count).reverse() : [],
                                                 fill: false,
                                                 borderColor: 'rgb(84, 108, 242)',
                                                 tension: 0.1
@@ -424,3 +452,16 @@ export default function Admindashboard(props) {
         </div>
     )
 }
+
+
+
+function mapStateToProps(state) {
+
+    return {
+        profile: state.data.profile.data,
+        msg: state.data.registererror
+    }
+}
+
+
+export default connect(mapStateToProps, null)(Admindashboard)

@@ -105,6 +105,7 @@ app.post("/register/user", (req, res) => {
         jsquiz: { type: 'js', status: false },
         cplusplusquiz: { type: 'cplusplus', status: false },
         pythonquiz: { type: 'python', status: false },
+        date: new Date()
       });
 
 
@@ -140,6 +141,69 @@ app.post("/register/admin", (req, res) => {
     }
   });
 });
+
+
+
+
+app.get("/alluserkeyvalue", (req, res) => {
+
+
+
+  User.find().then(alldata => {
+
+
+
+    if (alldata) {
+      var count = {};
+      if (alldata) {
+        var a = alldata.reverse().map((e, index) => new Date(e.date).toLocaleDateString());
+
+        a.forEach(function (i) { count[i] = (count[i] || 0) + 1; })
+
+
+
+        res.status(200).json({ count, alldata })
+
+
+
+
+        // setnewuserhistory(count)
+      }
+
+    }
+
+    // res.status(200).json(alldata)
+  })
+
+
+  // User.find().then(alluser => {
+  //   // var a = alluser.map(e => e.test).map(pt => pt);
+  //   // // a.map(e => e.point).reduce(function (acc, val) { return acc + val; }, 0)
+
+  //   // var aa = [];
+
+  //   // a.map(e => e.map(e =>
+
+
+  //   //   aa.push(e.point)
+
+
+
+  //   // ))
+
+  //   // console.log(aa.reduce(function (acc, val) { return acc + val; }, 0))
+
+
+
+
+  //   res.status(200).json(alluser)
+
+
+
+
+  // })
+})
+
 
 app.get('/check', (req, res) => {
   res.send(req.user)
