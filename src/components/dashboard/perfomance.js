@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import '../../assets/vendors/iconfonts/mdi/css/materialdesignicons.css';
-import profile from "../../assets/images/profile/male/image_1.png";
 import { Doughnut, Bar, Line } from 'react-chartjs-2';
-import { Helmet } from 'react-helmet';
+
 
 
 
@@ -16,8 +15,6 @@ export default function Perfomance(props) {
     const [cplusplustest, setcplusplustest] = useState('')
     const [pythontest, setpythontest] = useState('');
     const [totalpoint, settotalpoint] = useState(0);
-
-
 
     useEffect(() => {
 
@@ -72,7 +69,7 @@ export default function Perfomance(props) {
 
 
     return (
-        <div>
+        <div className='p-sm-2 p-lg-5'>
             <div class="page-content-wrapper-inner">
                 <div class="content-viewport">
                     <div style={{ padding: '20px', borderRadius: '20px', backgroundImage: 'linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)', color: 'white' }} class="row">
@@ -272,7 +269,7 @@ export default function Perfomance(props) {
                         </div>
 
                         {/* Doughnut chart */}
-                        <div class="col-lg-4 col-md-6 equel-grid">
+                        <div id="content2canvas" class="col-lg-4 col-md-6 equel-grid">
                             <div style={{ background: '#ededff' }} class="grid">
                                 <div class="grid-body d-flex flex-column h-100">
                                     <div class="wrapper">

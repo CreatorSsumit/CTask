@@ -107,18 +107,7 @@ function Admindashboard(props) {
                                 <button style={{ background: '#459DF9' }} type="button" class="btn btn-info w-full">LogOut</button>
                             </a>
                         </li>
-                        {/*   <li>
-                            <a href="pages/forms/form-elements.html">
-                                <span class="link-title">Forms</span>
-                                <i class="mdi mdi-clipboard-outline link-icon"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="pages/charts/chartjs.html">
-                                <span class="link-title">Charts</span>
-                                <i class="mdi mdi-chart-donut link-icon"></i>
-                            </a>
-                        </li> */}
+
 
                     </ul>
 
@@ -150,7 +139,7 @@ function Admindashboard(props) {
                                         <Line class='linebar' data={{
                                             labels: alldatas ? Object.keys(alldatas.count).reverse() : [],
                                             datasets: [{
-                                                label: 'My First Dataset',
+                                                label: 'Regsiter per day Growth',
                                                 data: alldatas ? Object.values(alldatas.count).reverse() : [],
                                                 fill: false,
                                                 borderColor: 'rgb(84, 108, 242)',

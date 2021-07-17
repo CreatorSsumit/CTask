@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useHistory } from "react-router-dom"
-
-
 import '../../assets/vendors/iconfonts/mdi/css/materialdesignicons.css';
 import profile from "../../assets/images/profile/male/image_1.png";
 import Quiz from "../test/quiz"
-import { Doughnut, Bar, Line } from 'react-chartjs-2';
 import Performanceboard from "./perfomance";
-import { connect } from "react-redux"
+import { connect } from "react-redux";
+import '@progress/kendo-theme-default/dist/all.css';
+import { PDFExport, savePDF } from "@progress/kendo-react-pdf";
 
 
 function Dashboard(props) {
@@ -18,6 +17,8 @@ function Dashboard(props) {
     const [quiz, setquiz] = useState(false);
     const [date, setdate] = useState(new Date());
     const [quizno, setquizno] = useState(date.getDate());
+
+
 
 
     var list = [
@@ -71,7 +72,13 @@ function Dashboard(props) {
         },
 
     ]
+    const pdfExportComponent = useRef(null);
 
+
+
+    var generatePDF = (event) => {
+        pdfExportComponent.current.save();
+    }
 
 
 
@@ -118,7 +125,7 @@ function Dashboard(props) {
                                                 <span class="grid-tittle">Quiz</span>
                                             </a>
 
-                                            <a style={{ cursor: 'pointer' }} onClick={() => setquiz(true)} class="dropdown-grid">
+                                            <a style={{ cursor: 'pointer' }} onClick={() => generatePDF()} class="dropdown-grid">
                                                 <i class="mdi mdi-bullseye link-icon"></i>
                                                 <span class="grid-tittle">Export</span>
                                             </a>
@@ -166,7 +173,7 @@ function Dashboard(props) {
                             </a>
                         </li>
                         <li>
-                            <a >
+                            <a onClick={() => generatePDF()}>
                                 <span class="link-title">Export In Pdf</span>
                                 <i class="mdi mdi-bullseye link-icon"></i>
                             </a>
@@ -191,7 +198,7 @@ function Dashboard(props) {
 
 
                 <div class="page-content-wrapper">
-                    {quiz ? <> <div className='py-3 d-flex'><h6>Quiz No {quizno}</h6> &nbsp;&nbsp;&nbsp; <small>{date.toLocaleDateString()} </small> </div> <Quiz state={props.state} list={list} /> </> : <Performanceboard state={props.state} />}
+                    {quiz ? <> <div className='py-3 d-flex'><h6>Quiz No {quizno}</h6> &nbsp;&nbsp;&nbsp; <small>{date.toLocaleDateString()} </small> </div> <Quiz state={props.state} list={list} /> </> : <PDFExport ref={pdfExportComponent} paperSize='A4'><Performanceboard state={props.state} /></PDFExport>}
 
 
                     <footer class="footer">
