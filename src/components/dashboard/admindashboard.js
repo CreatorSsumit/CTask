@@ -142,7 +142,7 @@ function Admindashboard(props) {
 
                 <div style={{ backgroundColor: '#' }} class="page-content-wrapper">
 
-                    <div class='md:flex sm-block wrapper w-100 mt-4'>
+                    <div class='md:flex sm-block wrapper w-100 '>
                         <div style={{ position: 'relative' }} class="col-6 col-md-6 equel-grid ">
                             <div class="grid">
                                 <div style={{ backgroundColor: 'white', borderRadius: '10px' }} class="grid-body d-flex flex-column h-100">
@@ -174,7 +174,7 @@ function Admindashboard(props) {
 
                                         }}
                                             width={'20%'}
-                                            height={20}
+                                            height={30}
 
                                             options={{
                                                 maintainAspectRatio: false, scales: {
@@ -206,32 +206,22 @@ function Admindashboard(props) {
                                     </div>
                                     <div class="vertical-timeline-wrapper">
                                         <div class="timeline-vertical dashboard-timeline">
-                                            <div class="activity-log">
-                                                <p class="log-name">Agnes Holt</p>
-                                                <div class="log-details">Analytics dashboard has been created<span
-                                                    class="text-primary ml-1">#Slack</span></div>
-                                                <small class="log-time">8 mins Ago</small>
-                                            </div>
 
-                                            <div class="activity-log">
-                                                <p class="log-name">Charlie Newton</p>
-                                                <div class="log-details"> Approved your request <div class="wrapper mt-2">
-                                                    <button type="button" class="btn btn-xs btn-primary">Approve</button>
-                                                    <button type="button" class="btn btn-xs btn-inverse-primary">Reject</button>
-                                                </div>
-                                                </div>
-                                                <small class="log-time">2 Hours Ago</small>
-                                            </div>
-                                            <div class="activity-log">
-                                                <p class="log-name">Gussie Page</p>
-                                                <div class="log-details">Added new task: Slack home page</div>
-                                                <small class="log-time">4 Hours Ago</small>
-                                            </div>
-                                            <div class="activity-log">
-                                                <p class="log-name">Ina Mendoza</p>
-                                                <div class="log-details">Added new images</div>
-                                                <small class="log-time">8 Hours Ago</small>
-                                            </div>
+                                            {alldatas ? alldatas.alldata.map(e => {
+                                                return (
+
+                                                    <div class="activity-log">
+                                                        <p class="log-name">{e.username}</p>
+                                                        <div class="log-details">Analytics dashboard has been created</div>
+                                                        <small class="log-time">{new Date().getMinutes() - new Date(e.date).getMinutes()} Min Ago</small>
+                                                    </div>
+
+
+                                                )
+                                            }) : ''}
+
+
+
                                         </div>
                                     </div>
                                 </div>
@@ -268,159 +258,42 @@ function Admindashboard(props) {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
 
-                                                <td class="pr-0 pl-4">
-                                                    <img class="profile-img img-sm" src={profile}
-                                                        alt="profile image" />
-                                                </td>
-                                                <td class="pl-md-0">
-                                                    <small class="text-black font-weight-medium d-block">Barbara Curtis</small>
-                                                    <span class="text-gray">
-                                                        <span class="status-indicator rounded-indicator small bg-primary"></span>Activated
-                                                    </span>
-                                                </td>
+                                            {alldatas ? alldatas.alldata.map(e => {
+                                                return (
 
-                                                <td class="text-success">563 &nbsp;  15.67% <i class="mdi mdi-arrow-up"></i></td>
-                                                <td class="text-success">700 &nbsp;  15.67% <i class="mdi mdi-arrow-up"></i></td>
-                                                <td class="text-success"> 86 &nbsp;  15.67%  <i class="mdi mdi-arrow-up"></i>
-                                                </td>
-                                                <td class="text-success"> 86 &nbsp; 15.67% <i class="mdi mdi-arrow-up"></i>
-                                                </td>
-                                                <td class="text-danger">86 &nbsp; 23.05% <i class="mdi mdi-arrow-down"></i> </td>
-                                                <td>Jar 23, 2019 </td>
-                                                <td style={{ cursor: 'pointer' }} class="actions">
-                                                    <img style={{ width: '15px' }} src='https://maxcdn.icons8.com/Share/icon/Dusk_Wired/Editing/edit1600.png' />
-                                                </td>
-                                            </tr>
-                                            <tr>
+                                                    <tr>
 
-                                                <td class="pr-0 pl-4">
-                                                    <img class="profile-img img-sm" src={profile}
-                                                        alt="profile image" />
-                                                </td>
-                                                <td class="pl-md-0">
-                                                    <small class="text-black font-weight-medium d-block">Barbara Curtis</small>
-                                                    <span class="text-gray">
-                                                        <span class="status-indicator rounded-indicator small bg-primary"></span>Activated
-                                                    </span>
-                                                </td>
+                                                        <td class="pr-0 pl-4">
+                                                            <img class="profile-img img-sm" src={profile}
+                                                                alt="profile image" />
+                                                        </td>
+                                                        <td class="pl-md-0">
+                                                            <small class="text-black font-weight-medium d-block">{e.username}</small>
+                                                            <span class="text-gray">
+                                                                <span class="status-indicator rounded-indicator small bg-primary"></span>Activated
+                                                            </span>
+                                                        </td>
 
-                                                <td class="text-success">563 &nbsp;  15.67% <i class="mdi mdi-arrow-up"></i></td>
-                                                <td class="text-success">700 &nbsp;  15.67% <i class="mdi mdi-arrow-up"></i></td>
-                                                <td class="text-success"> 86 &nbsp;  15.67%  <i class="mdi mdi-arrow-up"></i>
-                                                </td>
-                                                <td class="text-success"> 86 &nbsp; 15.67% <i class="mdi mdi-arrow-up"></i>
-                                                </td>
-                                                <td class="text-danger">86 &nbsp; 23.05% <i class="mdi mdi-arrow-down"></i> </td>
-                                                <td>Jar 23, 2019 </td>
-                                                <td style={{ cursor: 'pointer' }} class="actions">
-                                                    <img style={{ width: '15px' }} src='https://maxcdn.icons8.com/Share/icon/Dusk_Wired/Editing/edit1600.png' />
-                                                </td>
-                                            </tr>
-                                            <tr>
+                                                        <td class="text-success text-center">{e.test.map(e => e.point).reduce(function (acc, val) { return acc + val; }, 0)} </td>
+                                                        <td class="text-success">{e.test.filter(ht => ht.type === 'html').map(e => e.point).reduce(function (acc, val) { return acc + val; }, 0)} &nbsp;    {e.test.filter(ht => ht.type === 'html').length > 1 ? '+' + (((e.test.filter(ht => ht.type === 'html')[e.test.filter(ht => ht.type === 'html').length - 1].point - e.test.filter(ht => ht.type === 'html')[e.test.filter(ht => ht.type === 'html').length - 2].point) / e.test.filter(ht => ht.type === 'html')[e.test.filter(ht => ht.type === 'html').length - 2].point) * 100).toFixed(1) + '%' : `+0%`}                                  <i class="mdi mdi-arrow-up"></i></td>
+                                                        <td class="text-success">{e.test.filter(ht => ht.type === 'js').map(e => e.point).reduce(function (acc, val) { return acc + val; }, 0)} &nbsp;    {e.test.filter(ht => ht.type === 'js').length > 1 ? '+' + (((e.test.filter(ht => ht.type === 'js')[e.test.filter(ht => ht.type === 'js').length - 1].point - e.test.filter(ht => ht.type === 'js')[e.test.filter(ht => ht.type === 'js').length - 2].point) / e.test.filter(ht => ht.type === 'js')[e.test.filter(ht => ht.type === 'js').length - 2].point) * 100).toFixed(1) + '%' : `+0%`}                                  <i class="mdi mdi-arrow-up"></i></td>
 
-                                                <td class="pr-0 pl-4">
-                                                    <img class="profile-img img-sm" src={profile}
-                                                        alt="profile image" />
-                                                </td>
-                                                <td class="pl-md-0">
-                                                    <small class="text-black font-weight-medium d-block">Barbara Curtis</small>
-                                                    <span class="text-gray">
-                                                        <span class="status-indicator rounded-indicator small bg-primary"></span>Activated
-                                                    </span>
-                                                </td>
+                                                        <td class="text-success">{e.test.filter(ht => ht.type === 'cplusplus').map(e => e.point).reduce(function (acc, val) { return acc + val; }, 0)} &nbsp;    {e.test.filter(ht => ht.type === 'cplusplus').length > 1 ? '+' + (((e.test.filter(ht => ht.type === 'cplusplus')[e.test.filter(ht => ht.type === 'cplusplus').length - 1].point - e.test.filter(ht => ht.type === 'cplusplus')[e.test.filter(ht => ht.type === 'cplusplus').length - 2].point) / e.test.filter(ht => ht.type === 'cplusplus')[e.test.filter(ht => ht.type === 'cplusplus').length - 2].point) * 100).toFixed(1) + '%' : `+0%`}                                  <i class="mdi mdi-arrow-up"></i></td>
 
-                                                <td class="text-success">563 &nbsp;  15.67% <i class="mdi mdi-arrow-up"></i></td>
-                                                <td class="text-success">700 &nbsp;  15.67% <i class="mdi mdi-arrow-up"></i></td>
-                                                <td class="text-success"> 86 &nbsp;  15.67%  <i class="mdi mdi-arrow-up"></i>
-                                                </td>
-                                                <td class="text-success"> 86 &nbsp; 15.67% <i class="mdi mdi-arrow-up"></i>
-                                                </td>
-                                                <td class="text-danger">86 &nbsp; 23.05% <i class="mdi mdi-arrow-down"></i> </td>
-                                                <td>Jar 23, 2019 </td>
-                                                <td style={{ cursor: 'pointer' }} class="actions">
-                                                    <img style={{ width: '15px' }} src='https://maxcdn.icons8.com/Share/icon/Dusk_Wired/Editing/edit1600.png' />
-                                                </td>
-                                            </tr>
+                                                        <td class="text-success">{e.test.filter(ht => ht.type === 'python').map(e => e.point).reduce(function (acc, val) { return acc + val; }, 0)} &nbsp;    {e.test.filter(ht => ht.type === 'python').length > 1 ? '+' + (((e.test.filter(ht => ht.type === 'python')[e.test.filter(ht => ht.type === 'python').length - 1].point - e.test.filter(ht => ht.type === 'python')[e.test.filter(ht => ht.type === 'python').length - 2].point) / e.test.filter(ht => ht.type === 'python')[e.test.filter(ht => ht.type === 'python').length - 2].point) * 100).toFixed(1) + '%' : `+0%`}                                  <i class="mdi mdi-arrow-up"></i></td>
 
-                                            <tr>
+                                                        {/* <td class="text-danger">86 &nbsp; 23.05% <i class="mdi mdi-arrow-down"></i> </td>
+                                                    */}    <td>{new Date(e.date).getDate()} - {new Date(e.date).getMonth()} - {new Date(e.date).getFullYear()} </td>
+                                                        <td style={{ cursor: 'pointer' }} class="actions">
+                                                            <img style={{ width: '15px' }} src='https://maxcdn.icons8.com/Share/icon/Dusk_Wired/Editing/edit1600.png' />
+                                                        </td>
+                                                    </tr>
 
-                                                <td class="pr-0 pl-4">
-                                                    <img class="profile-img img-sm" src={profile}
-                                                        alt="profile image" />
-                                                </td>
-                                                <td class="pl-md-0">
-                                                    <small class="text-black font-weight-medium d-block">Barbara Curtis</small>
-                                                    <span class="text-gray">
-                                                        <span class="status-indicator rounded-indicator small bg-primary"></span>Activated
-                                                    </span>
-                                                </td>
 
-                                                <td class="text-success">563 &nbsp;  15.67% <i class="mdi mdi-arrow-up"></i></td>
-                                                <td class="text-success">700 &nbsp;  15.67% <i class="mdi mdi-arrow-up"></i></td>
-                                                <td class="text-success"> 86 &nbsp;  15.67%  <i class="mdi mdi-arrow-up"></i>
-                                                </td>
-                                                <td class="text-success"> 86 &nbsp; 15.67% <i class="mdi mdi-arrow-up"></i>
-                                                </td>
-                                                <td class="text-danger">86 &nbsp; 23.05% <i class="mdi mdi-arrow-down"></i> </td>
-                                                <td>Jar 23, 2019 </td>
-                                                <td style={{ cursor: 'pointer' }} class="actions">
-                                                    <img style={{ width: '15px' }} src='https://maxcdn.icons8.com/Share/icon/Dusk_Wired/Editing/edit1600.png' />
-                                                </td>
-                                            </tr>
+                                                )
 
-                                            <tr>
-
-                                                <td class="pr-0 pl-4">
-                                                    <img class="profile-img img-sm" src={profile}
-                                                        alt="profile image" />
-                                                </td>
-                                                <td class="pl-md-0">
-                                                    <small class="text-black font-weight-medium d-block">Barbara Curtis</small>
-                                                    <span class="text-gray">
-                                                        <span class="status-indicator rounded-indicator small bg-primary"></span>Activated
-                                                    </span>
-                                                </td>
-
-                                                <td class="text-success">563 &nbsp;  15.67% <i class="mdi mdi-arrow-up"></i></td>
-                                                <td class="text-success">700 &nbsp;  15.67% <i class="mdi mdi-arrow-up"></i></td>
-                                                <td class="text-success"> 86 &nbsp;  15.67%  <i class="mdi mdi-arrow-up"></i>
-                                                </td>
-                                                <td class="text-success"> 86 &nbsp; 15.67% <i class="mdi mdi-arrow-up"></i>
-                                                </td>
-                                                <td class="text-danger">86 &nbsp; 23.05% <i class="mdi mdi-arrow-down"></i> </td>
-                                                <td>Jar 23, 2019 </td>
-                                                <td style={{ cursor: 'pointer' }} class="actions">
-                                                    <img style={{ width: '15px' }} src='https://maxcdn.icons8.com/Share/icon/Dusk_Wired/Editing/edit1600.png' />
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-
-                                                <td class="pr-0 pl-4">
-                                                    <img class="profile-img img-sm" src={profile}
-                                                        alt="profile image" />
-                                                </td>
-                                                <td class="pl-md-0">
-                                                    <small class="text-black font-weight-medium d-block">Barbara Curtis</small>
-                                                    <span class="text-gray">
-                                                        <span class="status-indicator rounded-indicator small bg-primary"></span>Activated
-                                                    </span>
-                                                </td>
-
-                                                <td class="text-success">563 &nbsp;  15.67% <i class="mdi mdi-arrow-up"></i></td>
-                                                <td class="text-success">700 &nbsp;  15.67% <i class="mdi mdi-arrow-up"></i></td>
-                                                <td class="text-success"> 86 &nbsp;  15.67%  <i class="mdi mdi-arrow-up"></i>
-                                                </td>
-                                                <td class="text-success"> 86 &nbsp; 15.67% <i class="mdi mdi-arrow-up"></i>
-                                                </td>
-                                                <td class="text-danger">86 &nbsp; 23.05% <i class="mdi mdi-arrow-down"></i> </td>
-                                                <td>Jar 23, 2019 </td>
-                                                <td style={{ cursor: 'pointer' }} class="actions">
-                                                    <img style={{ width: '15px' }} src='https://maxcdn.icons8.com/Share/icon/Dusk_Wired/Editing/edit1600.png' />
-                                                </td>
-                                            </tr>
+                                            }) : ''}
 
                                         </tbody>
                                     </table>
