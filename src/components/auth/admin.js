@@ -111,7 +111,7 @@ const mapDispatchToProps = ({
 })
 
 function mapStateToProps(state) {
-  console.log(state)
+
   return {
 
   }

@@ -21,7 +21,7 @@ export default function Perfomance(props) {
 
         setstate(props.state.data.profile.data)
 
-        console.log(props.state.data.profile.data)
+
 
         if (state) {
 
@@ -338,7 +338,7 @@ export default function Perfomance(props) {
                                 </div>
                                 {state ? state.test.slice(Math.max(state.test.length - 6, 0)).reverse().map(data => {
 
-                                    console.log(data)
+
                                     return (
                                         <div class="d-flex justify-content-around border-bottom py-2">
                                             <p class="text-black">{(data.type).toUpperCase()}</p>

@@ -30,9 +30,7 @@ function Admindashboard(props) {
 
     }, []);
 
-    if (alldatas) {
-        console.log(alldatas.alldata.length)
-    }
+
 
     return (
         <div>

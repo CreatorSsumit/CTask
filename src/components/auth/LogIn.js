@@ -23,7 +23,7 @@ class LogIn extends Component {
 
 
 
-    console.log(this.props)
+
 
     return (
 
