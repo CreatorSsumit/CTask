@@ -21,7 +21,7 @@ app.use(
 // mongodb+srv://capgemini:capgemini@cluster0.wxqs3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 //----------------------------------------- END OF IMPORTS---------------------------------------------------
 mongoose.connect(
-  'mongodb://localhost/cap', {
+  'mongodb+srv://capgemini:capgemini@cluster0.wxqs3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 },
