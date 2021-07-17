@@ -103,7 +103,7 @@ app.post("/register/user", (req, res) => {
         password: hashedPassword,
         htmlquiz: { type: 'html', status: true },
         jsquiz: { type: 'js', status: false },
-        cplusplusquiz: { type: 'cplusplus', status: false },
+        cplusplusquiz: { type: 'cplusplus', status: true },
         pythonquiz: { type: 'python', status: false },
         date: new Date()
       });
