@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from 'react';
-import { BrowserRouter, Route, Switch, Redirect, useHistory } from 'react-router-dom';
+import React, { Component } from 'react';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 import LogIn from './components/auth/LogIn';
 import Adminregister from './components/auth/admin';
@@ -8,7 +8,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { connect } from "react-redux";
 import Dashboard from "./components/dashboard/dashboard"
-import AdminDashboard from "./components/dashboard/admindashboard"
+
 import Admindashboard from './components/dashboard/admindashboard';
 
 library.add(faEdit);

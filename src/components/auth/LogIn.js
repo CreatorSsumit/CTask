@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import registerImage from '../../img/register.png';
 import { connect } from "react-redux"
-import { bindActionCreators } from "redux"
 import { loginuser } from "../../actions/index"
 import { Link } from "react-router-dom"
 

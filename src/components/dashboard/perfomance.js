@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import '../../assets/vendors/iconfonts/mdi/css/materialdesignicons.css';
-import { Doughnut, Bar, Line } from 'react-chartjs-2';
+import { Doughnut, Line } from 'react-chartjs-2';
 
 
 
@@ -336,11 +336,11 @@ export default function Perfomance(props) {
                                     <p class=" h6 text-danger text-black">Date</p>
                                     <p class=" h6 text-danger text-gray">Point Gained</p>
                                 </div>
-                                {state ? state.test.slice(Math.max(state.test.length - 6, 0)).reverse().map(data => {
+                                {state ? state.test.slice(Math.max(state.test.length - 6, 0)).reverse().map((data, index) => {
 
 
                                     return (
-                                        <div class="d-flex justify-content-around border-bottom py-2">
+                                        <div key={index} class="d-flex justify-content-around border-bottom py-2">
                                             <p class="text-black">{(data.type).toUpperCase()}</p>
                                             <p class="text-black">{data.date}</p>
                                             <p class="text-gray">{data.point}</p>

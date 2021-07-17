@@ -30,6 +30,12 @@ function Admindashboard(props) {
 
     }, []);
 
+    var logout = () => {
+        localStorage.clear();
+        axios.get('http://localhost:4000/logout');
+        history.push('/login'); localStorage.clear();
+
+    }
 
 
     return (
@@ -43,7 +49,7 @@ function Admindashboard(props) {
                 </div> */}
                 <div style={{ background: '#f3f3f3' }} class="t-header-content-wrapper">
                     <div class="t-header-content">
-                        <img src='https://www.drupal.org/files/Capgemini_Logo_2COL_RGB.png' style={{ width: '170px' }} />
+                        <img src='https://www.drupal.org/files/Capgemini_Logo_2COL_RGB.png' style={{ width: '170px' }} alt='loading' />
 
                         <ul class="nav ml-auto">
                             <li class="nav-item dropdown">
@@ -59,7 +65,7 @@ function Admindashboard(props) {
                                         <h6 class="dropdown-title">Dashboard</h6>
                                         <p class="dropdown-title-text mt-2">Explore your test performance</p>
 
-                                        <a style={{ cursor: 'pointer' }} onClick={() => { localStorage.clear(); history.push('/login'); localStorage.clear(); }} class="dropdown-grid">
+                                        <a style={{ cursor: 'pointer' }} onClick={() => logout()} class="dropdown-grid">
 
                                             <button style={{ background: '#459DF9' }} type="button" class="btn btn-info btn-sm">LogOut</button>
                                         </a>
@@ -100,7 +106,7 @@ function Admindashboard(props) {
                         </li>
 
                         <li>
-                            <a style={{ cursor: 'pointer' }} onClick={() => { localStorage.clear(); history.push('/login'); localStorage.clear(); }} class="dropdown-grid">
+                            <a style={{ cursor: 'pointer' }} onClick={() => logout()} class="dropdown-grid">
 
                                 <button style={{ background: '#459DF9' }} type="button" class="btn btn-info w-full">LogOut</button>
                             </a>

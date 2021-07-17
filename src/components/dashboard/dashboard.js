@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useState, useRef } from 'react'
 import { useHistory } from "react-router-dom"
 import '../../assets/vendors/iconfonts/mdi/css/materialdesignicons.css';
 import profile from "../../assets/images/profile/male/image_1.png";
@@ -6,7 +6,8 @@ import Quiz from "../test/quiz"
 import Performanceboard from "./perfomance";
 import { connect } from "react-redux";
 import '@progress/kendo-theme-default/dist/all.css';
-import { PDFExport, savePDF } from "@progress/kendo-react-pdf";
+import { PDFExport } from "@progress/kendo-react-pdf";
+import axios from "axios"
 
 
 function Dashboard(props) {
@@ -82,6 +83,12 @@ function Dashboard(props) {
 
 
 
+    var logout = () => {
+        localStorage.clear();
+        axios.get('http://localhost:4000/logout');
+        history.push('/login'); localStorage.clear();
+
+    }
 
 
     return (
@@ -110,7 +117,7 @@ function Dashboard(props) {
                                         <h6 class="dropdown-title">Dashboard</h6>
                                         <p class="dropdown-title-text mt-2">Explore your Exam performance</p>
 
-                                        <a style={{ cursor: 'pointer' }} onClick={() => { localStorage.clear(); history.push('/login'); localStorage.clear(); }} class="dropdown-grid">
+                                        <a style={{ cursor: 'pointer' }} onClick={() => logout()} class="dropdown-grid">
 
                                             <button style={{ background: '#459DF9' }} type="button" class="btn btn-info btn-sm">LogOut</button>
                                         </a>
@@ -180,7 +187,7 @@ function Dashboard(props) {
 
                         </li>
                         <li>
-                            <a style={{ cursor: 'pointer' }} onClick={() => { localStorage.clear(); history.push('/login'); localStorage.clear(); }} class="dropdown-grid">
+                            <a style={{ cursor: 'pointer' }} onClick={() => logout()} class="dropdown-grid">
 
                                 <button style={{ background: '#459DF9' }} type="button" class="btn btn-info w-full">LogOut</button>
                             </a>

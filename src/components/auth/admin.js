@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import registerImage from '../../img/register.png';
 import { connect } from "react-redux"
-import { bindActionCreators } from "redux"
 import { registeruser } from "../../actions/index";
-import { useHistory, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 
 
@@ -24,8 +23,6 @@ class Admin extends Component {
 
 
   handleSubmit = event => {
-
-    const { username, password } = this.state;
 
 
     event.preventDefault();

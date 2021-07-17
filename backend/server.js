@@ -206,11 +206,14 @@ app.post("/sendpoint", (req, res) => {
 
 
 app.get("/logout", (req, res) => {
-
-  req.logOut();
-  res.send()
+  req.logout()
+  res.end();
 
 });
+
+app.get('/user', (req, res) => {
+  res.send(req.user)
+})
 //----------------------------------------- END OF ROUTES---------------------------------------------------
 //Start Server
 app.listen(4000, () => {
