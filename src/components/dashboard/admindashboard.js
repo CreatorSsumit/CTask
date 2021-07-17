@@ -26,27 +26,20 @@ function Admindashboard(props) {
     useEffect(() => {
 
         fetchdata();
-
-
     }, []);
 
     var logout = () => {
         localStorage.clear();
-        axios.get('http://localhost:4000/logout');
+        axios.get('http://localhost:4000/logout')
         history.push('/login'); localStorage.clear();
-
     }
 
 
     return (
         <div>
 
-
-
             <nav class="t-header">
-                {/* <div class="t-header-brand-wrapper">
 
-                </div> */}
                 <div style={{ background: '#f3f3f3' }} class="t-header-content-wrapper">
                     <div class="t-header-content">
                         <img src='https://www.drupal.org/files/Capgemini_Logo_2COL_RGB.png' style={{ width: '170px' }} alt='loading' />
