@@ -159,60 +159,18 @@ app.get("/alluserkeyvalue", (req, res) => {
         var a = alldata.reverse().map((e, index) => new Date(e.date).toLocaleDateString());
 
         a.forEach(function (i) { count[i] = (count[i] || 0) + 1; })
-
-
-
         res.status(200).json({ count, alldata })
-
-
-
-
-        // setnewuserhistory(count)
       }
 
     }
 
-    // res.status(200).json(alldata)
+
   })
 
 
-  // User.find().then(alluser => {
-  //   // var a = alluser.map(e => e.test).map(pt => pt);
-  //   // // a.map(e => e.point).reduce(function (acc, val) { return acc + val; }, 0)
-
-  //   // var aa = [];
-
-  //   // a.map(e => e.map(e =>
-
-
-  //   //   aa.push(e.point)
-
-
-
-  //   // ))
-
-  //   // console.log(aa.reduce(function (acc, val) { return acc + val; }, 0))
-
-
-
-
-  //   res.status(200).json(alluser)
-
-
-
-
-  // })
-})
-
-
-app.get('/check', (req, res) => {
-  res.send(req.user)
-})
-
-app.get('/user', (req, res) => {
-  res.send(req.user)
 
 })
+
 
 app.post("/sendpoint", (req, res) => {
   var { point, type } = req.body
@@ -239,20 +197,11 @@ app.post("/sendpoint", (req, res) => {
 
     })
 
-
-
-
   }).catch(e => {
     res.json({ error: 'do login again, user not found', isAuthenticated: false })
   })
 
 })
-
-
-
-
-
-
 
 
 
