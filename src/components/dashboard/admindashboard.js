@@ -4,10 +4,12 @@ import './admin.css';
 import profile from "../../assets/images/profile/male/image_1.png";
 import { connect } from "react-redux";
 import axios from 'axios'
-
+import { useHistory } from "react-router-dom"
 
 
 function Admindashboard(props) {
+
+    var history = useHistory();
 
     const [alldatas, setalldatas] = useState('');
 
@@ -58,6 +60,11 @@ function Admindashboard(props) {
                                     <div style={{ background: 'none' }} class="dropdown-header">
                                         <h6 class="dropdown-title">Dashboard</h6>
                                         <p class="dropdown-title-text mt-2">Explore your test performance</p>
+
+                                        <a style={{ cursor: 'pointer' }} onClick={() => { localStorage.clear(); history.push('/login'); localStorage.clear(); }} class="dropdown-grid">
+
+                                            <button style={{ background: '#459DF9' }} type="button" class="btn btn-info btn-sm">LogOut</button>
+                                        </a>
                                     </div><center>
                                         <div style={{ background: 'none' }} class="dropdown-body border-top pt-0">
                                             <a style={{ cursor: 'pointer' }} class="dropdown-grid">
@@ -121,6 +128,12 @@ function Admindashboard(props) {
                                 <i class="mdi mdi-bullseye link-icon"></i>
                             </a>
 
+                        </li>
+                        <li>
+                            <a style={{ cursor: 'pointer' }} onClick={() => { localStorage.clear(); history.push('/login'); localStorage.clear(); }} class="dropdown-grid">
+
+                                <button style={{ background: '#459DF9' }} type="button" class="btn btn-info w-full">LogOut</button>
+                            </a>
                         </li>
                         {/*   <li>
                             <a href="pages/forms/form-elements.html">
