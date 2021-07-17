@@ -71,25 +71,10 @@ function Admindashboard(props) {
                                                 <i class="mdi mdi-gauge link-icon"></i>
                                                 <span class="grid-tittle">Dashboard</span>
                                             </a>
-                                            <a style={{ cursor: 'pointer' }} class="dropdown-grid">
-                                                <i class="mdi mdi-clipboard-outline link-icon"></i>
-                                                <span class="grid-tittle"> Users Permissions</span>
-                                            </a>
-
-                                            <a style={{ cursor: 'pointer' }} class="dropdown-grid">
-                                                <i class="mdi mdi-bullseye link-icon"></i>
-                                                <span class="grid-tittle">Notification</span>
-                                            </a>
 
                                         </div></center>
 
-                                </ul>
-
-
-
-
-
-                            </li>
+                                </ul>  </li>
                         </ul>
                     </div>
                 </div>
@@ -115,20 +100,7 @@ function Admindashboard(props) {
                                 <i class="mdi mdi-gauge link-icon"></i>
                             </a>
                         </li>
-                        <li>
-                            <a style={{ cursor: 'pointer' }}>
-                                <span class="link-title "> Users Permissions</span>
 
-                                <i class="mdi mdi-clipboard-outline link-icon"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a >
-                                <span class="link-title">Notification</span>
-                                <i class="mdi mdi-bullseye link-icon"></i>
-                            </a>
-
-                        </li>
                         <li>
                             <a style={{ cursor: 'pointer' }} onClick={() => { localStorage.clear(); history.push('/login'); localStorage.clear(); }} class="dropdown-grid">
 
