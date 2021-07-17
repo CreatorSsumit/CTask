@@ -26,7 +26,7 @@ export const registeruser = (state) => dispatch => {
             } else {
                 dispatch(successregister(res.data))
             }
-        }).catch(err => dispatch(failregister(err.message ? err.message : err)))
+        }).catch(err => dispatch(failregister(err.message ? err.message + "  ,  " + 'Authorization failed , Do Reload website' : err)))
     }
 
 
@@ -56,7 +56,7 @@ export const loginuser = (state) => dispatch => {
             } else {
                 dispatch(successlogin(res.data))
             }
-        }).catch(err => dispatch(failregister(err.message ? err.message : err)))
+        }).catch(err => dispatch(failregister(err.message ? err.message + "  ,  " + 'Authorization failed , Do Reload website' : err)))
     }
 
 
@@ -85,7 +85,7 @@ export const sendpoint = (point, type) => dispatch => {
         } else {
             dispatch(successsend(res.data))
         }
-    }).catch(err => dispatch(failregister(err.message ? err.message : err)))
+    }).catch(err => dispatch(failregister(err.message ? err.message + "  ,  " + '  Authorization failed , Do Reload website' : err)))
 
 
 
