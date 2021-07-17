@@ -1,3 +1,6 @@
+run npm i in both capgemini_task and backend folder to install node module packages;
+
+
 client server is running on localhost:3000;
 and server is running on localhost:4000;
 
