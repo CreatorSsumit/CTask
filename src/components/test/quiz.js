@@ -34,9 +34,12 @@ function Quiz(props) {
     var timeer = 1;
 
     useEffect(() => {
+
+
+
         if (props.list) {
 
-            if (type === 'html' && props.profile.htmlquiz.status) {
+            if (type === 'html' && props.profile.htmlquiz.status ? true : false) {
                 var ht = props.list.filter((e) => e.type === 'html')
                 setqueslist(ht)
             }

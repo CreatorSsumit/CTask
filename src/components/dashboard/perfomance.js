@@ -336,7 +336,7 @@ export default function Perfomance(props) {
                                     <p class=" h6 text-danger text-black">Date</p>
                                     <p class=" h6 text-danger text-gray">Point Gained</p>
                                 </div>
-                                {state ? state.test.slice(Math.max(state.test.length - 6, 0)).reverse().map((data, index) => {
+                                {(state) ? state.test.slice(Math.max(state.test.length - 6, 0)).reverse().map((data, index) => {
 
 
                                     return (
