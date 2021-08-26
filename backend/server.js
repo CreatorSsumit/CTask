@@ -21,10 +21,7 @@ app.use(
 // mongodb+srv://capgemini:capgemini@cluster0.wxqs3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 //----------------------------------------- END OF IMPORTS---------------------------------------------------
 mongoose.connect(
-  'mongodb+srv://capgemini:capgemini@cluster0.wxqs3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-},
+  'mongodb://localhost/task',
   () => {
     console.log("Mongoose Is Connected");
   }
@@ -90,6 +87,7 @@ app.post("/login/:user", (req, res, next) => {
 
 
 app.post("/register/user", (req, res) => {
+
   User.findOne({ username: req.body.username }, async (err, doc) => {
     if (err) throw err;
     if (doc) res.json({ error: "User Already Exists" });

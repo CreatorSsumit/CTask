@@ -27,49 +27,87 @@ function Dashboard(props) {
         {
             type: 'html',
             question: {
-                ques1: 'which option best describes your job role?',
-                options: ['a', 'b', 'c', 'd']
+                ques1: ' HTML stands for - ?',
+                options: ['HighText Machine Language', 'HyperText and links Markup Language', 'HyperText Markup Language', 'None of these']
             },
 
-            answer: 'a'
+            answer: 'HyperText Markup Language'
         },
         {
             type: 'cplusplus',
             question: {
-                ques1: 'which option best describes your job role?',
-                options: ['a', 'b', 'c', 'd']
+                ques1: 'Which of the following is the correct syntax to print the message in C++ language ?',
+                options: ['Cout << Hello world! ;', 'cout <<"Hello world!";', 'Out <<"Hello world!;', 'None of the above']
             },
 
-            answer: 'a'
+            answer: 'cout <<"Hello world!";'
+        }
+        ,
+        {
+            type: 'cplusplus',
+            question: {
+                ques1: 'Which of the following features must be supported by any programming language to become a pure object-oriented programming language ?',
+                options: ['Encapsulation', 'Inheritance', 'Polymorphism', 'All of the above']
+            },
+
+            answer: 'All of the above'
+        },
+        
+        {
+            type: 'cplusplus',
+            question: {
+                ques1: ' The programming language that has the ability to create new data types is called___. ?',
+                options: ['Overloaded', 'Encapsulated', 'Reprehensible', 'Extensible']
+            },
+
+            answer: 'Extensible'
         },
         {
             type: 'js',
             question: {
-                ques1: 'which option best describes your job role?',
-                options: ['a', 'b', 'c', 'd']
+                ques1: 'Which type of JavaScript language is ___ ?',
+                options: ['Object-Oriented', 'Object-Based', 'Assembly-language', 'High-level']
             },
 
-            answer: 'a'
+            answer: 'Object-Based'
         }
 
         ,
         {
             type: 'html',
             question: {
-                ques1: 'which option best describes your job role?',
-                options: ['a', 'b', 'c', 'd']
+                ques1: 'The correct sequence of HTML tags for starting a webpage is - ?',
+                options: ['Head, Title, HTML, body', 'HTML, Body, Title, Head', 'HTML, Head, Title, Body', 'HTML, Head, Title, Body']
             },
 
-            answer: 'b'
+            answer: 'HTML, Head, Title, Body'
         },
         {
             type: 'html',
             question: {
-                ques1: 'which option best describes your job role?',
-                options: ['a', 'b', 'c', 'd']
+                ques1: 'Which of the following element is responsible for making the text bold in HTML ?',
+                options: ['<pre>', '<a>', '<b>', '<br>']
             },
 
-            answer: 'c'
+            answer: ' <b>'
+        },
+        {
+            type: 'html',
+            question: {
+                ques1: 'Which of the following tag is used for inserting the largest heading in HTML ?',
+                options: ['<h3>', '<h1>', '<h2>', '<h6>']
+            },
+
+            answer: '<h1>'
+        },
+        {
+            type: 'html',
+            question: {
+                ques1: 'How to add a background color in HTML ?',
+                options: ['<marquee bg color: "red">', '<marquee bg-color = "red">', '<marquee bgcolor = "red">', '<marquee color = "red">']
+            },
+
+            answer: '<marquee bgcolor = "red">'
         },
 
     ]

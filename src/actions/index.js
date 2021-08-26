@@ -6,6 +6,7 @@ export const registeruser = (state) => dispatch => {
     const { username, password, panel } = state;
 
 
+
     if (username) {
         axios({
             method: "POST",
