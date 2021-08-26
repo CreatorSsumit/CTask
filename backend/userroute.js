@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 
-mongoose.connect('mongodb+srv://capgemini:capgemini@cluster0.wxqs3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority').then(e => {
+mongoose.connect('mongodb://localhost/task').then(e => {
     console.log('config connected')
 }).catch(err => {
     console.log(err.message)
