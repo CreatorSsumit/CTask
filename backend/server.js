@@ -120,10 +120,17 @@ app.get("/profileuser", isLoggedIn, function (req, res) {
 app.get("/profileadmin", isLoggedIn, function (req, res) {
 
   Admin.findOne({ username: req.session.passport.user }).then(e => {
-    res.json({ data: e, isAuthenticate: true, msg: 'Authenticated Successfully', who: 'admin' })
-    res.end();
+    if (e === null || undefined) {
+      res.json({ error: "No Admin Exists , Do Register" });
+      res.end();
+    } else {
+      res.json({ data: e, isAuthenticate: true, msg: 'Authenticated Successfully', who: 'admin' })
+      res.end();
+    }
+
 
   }).catch(e => {
+
     res.json({ error: "No Admin Exists , Do Register" });
     res.end();
   })
@@ -385,7 +392,7 @@ function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
   } else {
-    res.redirect("/");
+    res.json({ error: 'do login again, user not found', isAuthenticated: false });
     res.end()
   }
 
