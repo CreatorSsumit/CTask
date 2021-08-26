@@ -13,6 +13,17 @@ function Admindashboard(props) {
     var history = useHistory();
 
     const [alldatas, setalldatas] = useState('');
+    const [changeper, setchangeper] = useState('')
+    var [htmlq, sethtmlq] = useState('');
+    var [cplusplusq, setcplusplusq] = useState('')
+    var [jsq, setjsq] = useState('')
+    var [pythonq, setpythonq] = useState('');
+    var [isdone, setisdone] = useState('');
+
+
+
+
+
 
 
 
@@ -20,14 +31,47 @@ function Admindashboard(props) {
 
         axios.get('http://localhost:4000/alluserkeyvalue').then(e => e.data ? setalldatas(e.data) : [])
 
-
     }
+
+
+    var chage = () => {
+        if (changeper) {
+            sethtmlq(changeper.htmlquiz.status);
+            setcplusplusq(changeper.cplusplusquiz.status);
+            setjsq(changeper.jsquiz.status);
+            setpythonq(changeper.pythonquiz.status);
+
+        } else {
+
+        }
+    }
+
+    var changepermisstion = () => {
+        axios({
+            method: "POST",
+            data: {
+                htmlq, cplusplusq, jsq, pythonq, username: changeper.username
+
+            },
+            withCredentials: true,
+            url: `http://localhost:4000/setpermission`,
+        }).then((res) => {
+
+            console.log(res)
+        })
+    }
+
 
 
     useEffect(() => {
 
+
         fetchdata();
-    }, []);
+        chage()
+
+    }, [changeper]);
+
+
 
     var logout = () => {
         localStorage.clear();
@@ -175,6 +219,55 @@ function Admindashboard(props) {
                                 </div>
                             </div>
                         </div>
+
+
+                        {/* modal */}
+
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Permissions <span>   <small>{changeper.username}</small></span> </h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        {changeper === null || undefined ? <div class="d-flex justify-content-center">
+                                            <div class="spinner-border" role="status">
+                                                <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                        </div> : <div>
+                                            <div class="custom-control custom-switch mb-3">
+                                                <input type="checkbox" class="custom-control-input" id="customSwitch1" checked={htmlq} onChange={(e) => sethtmlq(e.target.checked)} />
+                                                <label class="custom-control-label" for="customSwitch1">Html Exam</label>
+                                            </div>
+                                            <div class="custom-control custom-switch mb-3">
+                                                <input type="checkbox" class="custom-control-input" id="customSwitch2" checked={cplusplusq} onChange={(e) => setcplusplusq(e.target.checked)} />
+                                                <label class="custom-control-label" for="customSwitch2">C++ Exam</label>
+                                            </div>
+                                            <div class="custom-control custom-switch mb-3">
+                                                <input type="checkbox" class="custom-control-input" id="customSwitch3" checked={jsq} onChange={(e) => setjsq(e.target.checked)} />
+                                                <label class="custom-control-label" for="customSwitch3">JavaScript Exam</label>
+                                            </div>
+                                            <div class="custom-control custom-switch mb-3">
+                                                <input type="checkbox" class="custom-control-input" id="customSwitch4" checked={pythonq} onChange={(e) => setpythonq(e.target.checked)} />
+                                                <label class="custom-control-label" for="customSwitch4">Python Exam</label>
+                                            </div>
+
+                                        </div>}
+                                        <small>After saved wait for a few second for saved data will  reflect</small>
+                                    </div>
+                                    <div class="modal-footer">
+
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" onClick={() => changepermisstion()} class="btn btn-primary">Save Changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* modal end */}
+
                         <div class="col-6 col-md-6 equel-grid">
                             <div class="grid">
                                 <div style={{ backgroundColor: 'white', borderRadius: '10px' }} class="grid-body">
@@ -227,6 +320,7 @@ function Admindashboard(props) {
                                                 <th>C++ Points</th>
                                                 <th>Python Points</th>
                                                 <th>Joining date</th>
+                                                <th>Edit</th>
 
 
 
@@ -263,9 +357,13 @@ function Admindashboard(props) {
 
                                                         {/* <td class="text-danger">86 &nbsp; 23.05% <i class="mdi mdi-arrow-down"></i> </td>
                                                     */}    <td>{new Date(e.date).getDate()} - {new Date(e.date).getMonth()} - {new Date(e.date).getFullYear()} </td>
-                                                        <td style={{ cursor: 'pointer' }} class="actions">
-                                                            <img style={{ width: '15px' }} src='https://maxcdn.icons8.com/Share/icon/Dusk_Wired/Editing/edit1600.png' />
-                                                        </td>
+
+                                                        <button type="button" onClick={() => setchangeper(e)} data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                                            <td style={{ cursor: 'pointer' }} class="actions">
+                                                                <img style={{ width: '15px' }} src='https://maxcdn.icons8.com/Share/icon/Dusk_Wired/Editing/edit1600.png' />
+                                                            </td>
+                                                        </button>
+
                                                     </tr>
 
 
@@ -298,6 +396,9 @@ function Admindashboard(props) {
                 </div>
 
             </div>
+
+
+
 
 
         </div>

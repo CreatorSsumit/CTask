@@ -231,6 +231,7 @@ app.get("/alluserkeyvalue", (req, res) => {
         var a = alldata.reverse().map((e, index) => new Date(e.date).toLocaleDateString());
 
         a.forEach(function (i) { count[i] = (count[i] || 0) + 1; })
+
         res.status(200).json({ count, alldata });
         res.end();
       }
@@ -247,7 +248,7 @@ app.get("/alluserkeyvalue", (req, res) => {
 
 app.post("/sendpoint", (req, res) => {
 
-  console.log(req.body)
+
   var { point, type } = req.body
 
 
@@ -277,6 +278,23 @@ app.post("/sendpoint", (req, res) => {
     res.end();
   })
 
+})
+
+app.post("/setpermission", (req, res) => {
+  var { htmlq, cplusplusq, jsq, pythonq, username } = req.body;
+
+  var update = {
+    'htmlquiz.status': htmlq,
+    'cplusplusquiz.status': cplusplusq,
+    'jsquiz.status': jsq,
+    'pythonquiz.status': pythonq
+  }
+
+  User.findOneAndUpdate({ username }, update, { upsert: true, new: true }).then(e => {
+
+
+
+  })
 })
 
 

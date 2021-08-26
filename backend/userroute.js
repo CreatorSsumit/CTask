@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 
-mongoose.connect('mongodb://localhost/task').then(e => {
+mongoose.connect('mongodb://localhost/task', { useFindAndModify: false }).then(e => {
     console.log('config connected')
 }).catch(err => {
     console.log(err.message)
