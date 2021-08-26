@@ -5,6 +5,7 @@ import profile from "../../assets/images/profile/male/image_1.png";
 import { connect } from "react-redux";
 import axios from 'axios'
 import { useHistory } from "react-router-dom"
+import { logoutuser } from '../../actions/index'
 
 
 function Admindashboard(props) {
@@ -30,7 +31,13 @@ function Admindashboard(props) {
 
     var logout = () => {
         localStorage.clear();
-        axios.get('http://localhost:4000/logout')
+
+        try {
+            props.logoutuser();
+        } catch (error) {
+            console.log(error)
+        }
+
         history.push('/login'); localStorage.clear();
     }
 
@@ -307,5 +314,10 @@ function mapStateToProps(state) {
     }
 }
 
+const mapDispatchToProps = ({
+    logoutuser: logoutuser
+})
 
-export default connect(mapStateToProps, null)(Admindashboard)
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Admindashboard)

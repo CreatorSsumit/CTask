@@ -56,11 +56,16 @@ app.post("/login/:user", (req, res, next) => {
     require("./userpassportConfig")(passport);
     passport.authenticate("local", (err, user, info) => {
       if (err) throw err;
-      if (!user) res.json({ error: "No User Exists , Do Register" });
+      if (!user) {
+        res.json({ error: "No User Exists , Do Register" });
+        res.end();
+      }
       else {
         req.logIn(user, (err) => {
           if (err) throw err;
-          res.json({ data: req.user, isAuthenticate: true, msg: 'Authenticated Successfully', who: 'user' })
+
+          res.json({ data: req.user, isAuthenticate: true, msg: 'Authenticated Successfully', who: 'user' });
+          res.end();
 
         });
       }
@@ -71,12 +76,15 @@ app.post("/login/:user", (req, res, next) => {
     require("./adminpassportConfig")(passport);
     passport.authenticate("local", (err, user, info) => {
       if (err) throw err;
-      if (!user) res.json({ error: "No Admin Exists , Do Register" });
+      if (!user) {
+        res.json({ error: "No Admin Exists , Do Register" });
+        res.end();
+      }
       else {
         req.logIn(user, (err) => {
           if (err) throw err;
           res.json({ data: req.user, isAuthenticate: true, msg: 'Authenticated Successfully', who: 'admin' })
-
+          res.end();
         });
       }
     })(req, res, next);
@@ -90,7 +98,7 @@ app.post("/register/user", (req, res) => {
 
   User.findOne({ username: req.body.username }, async (err, doc) => {
     if (err) throw err;
-    if (doc) res.json({ error: "User Already Exists" });
+    if (doc) res.json({ error: "User Already Exists" }); res.end();
     if (!doc) {
       const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
@@ -109,7 +117,8 @@ app.post("/register/user", (req, res) => {
 
       await newUser.save();
 
-      res.json({ data: req.user, isAuthenticate: true, msg: 'Thanku for Register . Go to login page' })
+      res.json({ data: req.user, isAuthenticate: true, msg: 'Thanku for Register . Go to login page' });
+      res.end();
 
     }
   });
@@ -120,7 +129,7 @@ app.post("/register/user", (req, res) => {
 app.post("/register/admin", (req, res) => {
   Admin.findOne({ username: req.body.username }, async (err, doc) => {
     if (err) throw err;
-    if (doc) res.json({ error: "User Already Exists" });
+    if (doc) res.json({ error: "User Already Exists" }); res.end();
     if (!doc) {
       const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
@@ -135,7 +144,7 @@ app.post("/register/admin", (req, res) => {
       await newUser.save();
 
       res.json({ data: req.user, isAuthenticate: true, msg: 'New Admin Created' })
-
+      res.end();
     }
   });
 });
@@ -157,7 +166,8 @@ app.get("/alluserkeyvalue", (req, res) => {
         var a = alldata.reverse().map((e, index) => new Date(e.date).toLocaleDateString());
 
         a.forEach(function (i) { count[i] = (count[i] || 0) + 1; })
-        res.status(200).json({ count, alldata })
+        res.status(200).json({ count, alldata });
+        res.end();
       }
 
     }
@@ -192,11 +202,12 @@ app.post("/sendpoint", (req, res) => {
     resp.save().then(e => {
 
       res.json({ data: e, isAuthenticate: true, msg: 'Submitted Successfully' })
-
+      res.end();
     })
 
   }).catch(e => {
-    res.json({ error: 'do login again, user not found', isAuthenticated: false })
+    res.json({ error: 'do login again, user not found', isAuthenticated: false });
+    res.end();
   })
 
 })
@@ -210,7 +221,9 @@ app.get("/logout", (req, res) => {
 });
 
 app.get('/user', (req, res) => {
-  res.send(req.user)
+  res.send(req.user);
+
+  res.end();
 })
 //----------------------------------------- END OF ROUTES---------------------------------------------------
 //Start Server

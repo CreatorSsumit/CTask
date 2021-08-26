@@ -7,7 +7,8 @@ import Performanceboard from "./perfomance";
 import { connect } from "react-redux";
 import '@progress/kendo-theme-default/dist/all.css';
 import { PDFExport } from "@progress/kendo-react-pdf";
-import axios from "axios"
+import axios from "axios";
+import { logoutuser } from '../../actions/index'
 
 
 function Dashboard(props) {
@@ -52,7 +53,7 @@ function Dashboard(props) {
 
             answer: 'All of the above'
         },
-        
+
         {
             type: 'cplusplus',
             question: {
@@ -123,7 +124,13 @@ function Dashboard(props) {
 
     var logout = () => {
         localStorage.clear();
-        axios.get('http://localhost:4000/logout');
+
+        try {
+            props.logoutuser();
+        } catch (error) {
+            console.log(error)
+        }
+
         history.push('/login'); localStorage.clear();
 
     }
@@ -278,4 +285,9 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, null)(Dashboard);
+const mapDispatchToProps = ({
+    logoutuser: logoutuser
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

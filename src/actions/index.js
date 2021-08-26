@@ -113,6 +113,29 @@ export const failregister = (err) => ({
     payload: err
 })
 
+export const logoutuser = () => dispatch => {
+
+    axios({
+        method: "GET",
+
+        withCredentials: true,
+        url: `${url}/logout`,
+    }).then((res) => {
+
+        if (res.data.error) {
+            dispatch(failregister(res.data.error))
+        } else {
+            console.log(res.data)
+            dispatch(successsend(res.data))
+        }
+    }).catch(err => dispatch(failregister(err.message ? err.message + "  ,  " + '  Authorization failed , Reload website or server' : err)))
+
+
+
+}
+
+
+
 
 
 
