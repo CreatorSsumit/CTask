@@ -32,17 +32,6 @@ app.use(
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// app.use(
-//   session({
-//     secret: "secretcode",
-//     resave: true,
-//     saveUninitialized: true,
-//   })
-// );
-// app.use(cookieParser("secretcode"));
-// app.use(passport.initialize());
-// app.use(passport.session());
-
 
 
 
@@ -139,54 +128,6 @@ app.get("/profileadmin", isLoggedIn, function (req, res) {
 })
 
 
-// app.post("/login/:user", (req, res, next) => {
-
-//   var id = req.params.user;
-
-
-//   if (id === 'User') {
-
-//     require("./userpassportConfig")(passport);
-//     passport.authenticate("local", (err, user, info) => {
-//       if (err) throw err;
-//       if (!user) {
-//         res.json({ error: "No User Exists , Do Register" });
-//         res.end();
-//       }
-//       else {
-//         req.logIn(user, (err) => {
-//           if (err) throw err;
-
-//           res.json({ data: req.user, isAuthenticate: true, msg: 'Authenticated Successfully', who: 'user' });
-//           res.end();
-
-//         });
-//       }
-//     })(req, res, next);
-//   }
-//   if (id === 'Admin') {
-
-//     require("./adminpassportConfig")(passport);
-//     passport.authenticate("local", (err, user, info) => {
-//       if (err) throw err;
-//       if (!user) {
-//         res.json({ error: "No Admin Exists , Do Register" });
-//         res.end();
-//       }
-//       else {
-//         req.logIn(user, (err) => {
-//           if (err) throw err;
-//           res.json({ data: req.user, isAuthenticate: true, msg: 'Authenticated Successfully', who: 'admin' })
-//           res.end();
-//         });
-//       }
-//     })(req, res, next);
-//   }
-
-// });
-
-
-
 
 
 app.post("/register/user", (req, res) => {
@@ -222,33 +163,6 @@ app.post("/register/user", (req, res) => {
     })
 
 
-
-  // User.findOne({ username: req.body.username }, async (err, doc) => {
-  //   if (err) throw err;
-  //   if (doc) res.json({ error: "User Already Exists" }); res.end();
-  //   if (!doc) {
-  //     const hashedPassword = await bcrypt.hash(req.body.password, 10);
-
-  //     const newUser = new User({
-  //       name: 'sumit',
-  //       email: req.body.username,
-  //       username: req.body.username,
-  //       password: hashedPassword,
-  //       htmlquiz: { type: 'html', status: true },
-  //       jsquiz: { type: 'js', status: false },
-  //       cplusplusquiz: { type: 'cplusplus', status: true },
-  //       pythonquiz: { type: 'python', status: false },
-  //       date: new Date()
-  //     });
-
-
-  //     await newUser.save();
-
-  //     res.json({ data: req.user, isAuthenticate: true, msg: 'Thanku for Register . Go to login page' });
-  //     res.end();
-
-  //   }
-  // });
 });
 
 
