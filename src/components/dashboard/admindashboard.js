@@ -18,7 +18,8 @@ function Admindashboard(props) {
     var [cplusplusq, setcplusplusq] = useState('')
     var [jsq, setjsq] = useState('')
     var [pythonq, setpythonq] = useState('');
-    var [isdone, setisdone] = useState('');
+    var [isdone, setisdone] = useState(false);
+    var [donemsg, setdonemsg] = useState(false);
 
 
 
@@ -47,6 +48,7 @@ function Admindashboard(props) {
     }
 
     var changepermisstion = () => {
+        setisdone(true)
         axios({
             method: "POST",
             data: {
@@ -57,9 +59,25 @@ function Admindashboard(props) {
             url: `http://localhost:4000/setpermission`,
         }).then((res) => {
 
-            console.log(res)
+            setisdone(!res.data.done);
+            fetchdata();
+
+            let count = 0;
+            var tt = setInterval(() => {
+                count = +1;
+                setdonemsg(true);
+            }, 1000);
+
+            var cl = setInterval(() => {
+                clearInterval(tt);
+                setdonemsg(false);
+                clearInterval(cl);
+            }, 3000);
+
         })
     }
+
+
 
 
 
@@ -67,7 +85,7 @@ function Admindashboard(props) {
 
 
         fetchdata();
-        chage()
+        chage();
 
     }, [changeper]);
 
@@ -232,11 +250,16 @@ function Admindashboard(props) {
                                     </div>
                                     <div class="modal-body">
 
-                                        {changeper === null || undefined ? <div class="d-flex justify-content-center">
+                                        {isdone ? <div class="d-flex justify-content-center">
                                             <div class="spinner-border" role="status">
                                                 <span class="visually-hidden">Loading...</span>
                                             </div>
                                         </div> : <div>
+
+                                            {donemsg ? <div class="alert alert-success">
+                                                <strong>Success</strong>
+                                            </div> : ''}
+
                                             <div class="custom-control custom-switch mb-3">
                                                 <input type="checkbox" class="custom-control-input" id="customSwitch1" checked={htmlq} onChange={(e) => sethtmlq(e.target.checked)} />
                                                 <label class="custom-control-label" for="customSwitch1">Html Exam</label>

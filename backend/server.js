@@ -292,7 +292,8 @@ app.post("/setpermission", (req, res) => {
 
   User.findOneAndUpdate({ username }, update, { upsert: true, new: true }).then(e => {
 
-
+    res.json({ 'done': true });
+    res.end()
 
   })
 })
