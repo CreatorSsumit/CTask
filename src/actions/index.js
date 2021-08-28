@@ -1,6 +1,6 @@
 import axios from "axios";
 var url = 'http://localhost:4000';
-import Crypto from "crypto-js";
+// import Crypto from "crypto-js";
 
 export const registeruser = (state) => dispatch => {
 
