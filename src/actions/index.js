@@ -1,5 +1,6 @@
 import axios from "axios";
-var url = 'http://localhost:4000'
+var url = 'http://localhost:4000';
+import Crypto from "crypto-js";
 
 export const registeruser = (state) => dispatch => {
 
@@ -38,6 +39,8 @@ export const registeruser = (state) => dispatch => {
 export const loginuser = (state) => dispatch => {
 
     const { username, password, panel } = state;
+
+    // var alldata = Crypto.AES.encrypt(JSON.stringify(username,password),'CreatorSsumit98@').toString();
 
     if (username) {
         axios({
