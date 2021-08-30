@@ -1,8 +1,10 @@
 const mongoose = require("mongoose");
 
-// mongodb+srv://capgemini:capgemini@cluster0.wxqs3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+var mongodburl = "mongodb+srv://capgemini:capgemini@cluster0.wxqs3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+var localmongodburl = "mongodb://localhost/task";
 
-mongoose.connect('mongodb://localhost/task', { useFindAndModify: false }).then(e => {
+
+mongoose.connect(mongodburl, { useFindAndModify: false }).then(e => {
     console.log('config connected')
 }).catch(err => {
     console.log(err.message)

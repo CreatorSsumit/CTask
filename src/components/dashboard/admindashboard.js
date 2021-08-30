@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { Line } from "react-chartjs-2";
 import './admin.css';
 import profile from "../../assets/images/profile/male/image_1.png";
+import editlogo from "../../assets/images/editlogo.png";
 import { connect } from "react-redux";
 import axios from 'axios'
 import { useHistory } from "react-router-dom"
@@ -408,7 +409,7 @@ function Admindashboard(props) {
 
                                                         <button type="button" onClick={() => setchangeper(e)} data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                                             <td style={{ cursor: 'pointer' }} class="actions">
-                                                                <img style={{ width: '15px' }} src='https://maxcdn.icons8.com/Share/icon/Dusk_Wired/Editing/edit1600.png' />
+                                                                <img style={{ width: '15px' }} src={editlogo} />
                                                             </td>
                                                         </button>
 
