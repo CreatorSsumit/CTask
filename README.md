@@ -24,7 +24,7 @@ To create new admin  just go to ' http://localhost:3000/registeradmin ' route;
 To run server and client both simultaneously , so just run commands in capgemini_task folder =  yarn start or npm start;
 
 
-if sometimes  you may face stuck problem during login or register in userpage so register fake candidiate and submit it then go to login page by clicking i have a account button.
+if sometimes  you may face stuck problem during login or register or i have a account button does'nt work in userpage so register fake candidiate and submit it then go to login page by clicking i have a account button.
 
 
 
