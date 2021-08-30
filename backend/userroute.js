@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 
 // mongodb+srv://capgemini:capgemini@cluster0.wxqs3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 
-mongoose.connect('mongodb://localhost/task', { useFindAndModify: false }).then(e => {
+mongoose.connect('mongodb+srv://capgemini:capgemini@cluster0.wxqs3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { useFindAndModify: false }).then(e => {
     console.log('config connected')
 }).catch(err => {
-    console.log(err.message)
+    console.log(err.message);
 })
 
 var plm = require("passport-local-mongoose");
