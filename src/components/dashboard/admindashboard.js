@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { Line } from "react-chartjs-2";
 import './admin.css';
 import profile from "../../assets/images/profile/male/image_1.png";
@@ -6,6 +6,8 @@ import { connect } from "react-redux";
 import axios from 'axios'
 import { useHistory } from "react-router-dom"
 import { logoutuser } from '../../actions/index'
+
+var url = 'http://localhost:4000';
 
 
 function Admindashboard(props) {
@@ -30,7 +32,7 @@ function Admindashboard(props) {
 
     var fetchdata = () => {
 
-        axios.get('http://localhost:4000/alluserkeyvalue').then(e => e.data ? setalldatas(e.data) : [])
+        axios.get(`${url}/alluserkeyvalue`).then(e => e.data ? setalldatas(e.data) : [])
 
     }
 
@@ -56,7 +58,7 @@ function Admindashboard(props) {
 
             },
             withCredentials: true,
-            url: `http://localhost:4000/setpermission`,
+            url: `${url}/setpermission`,
         }).then((res) => {
 
             setisdone(!res.data.done);
@@ -78,6 +80,29 @@ function Admindashboard(props) {
     }
 
 
+    var deleteuser = () => {
+
+        axios({
+            method: "POST",
+            data: {
+                username: changeper.username
+            },
+            withCredentials: true,
+            url: `${url}/deleteuser`,
+        }).then((res) => {
+
+            if (res.data.done) {
+                fetchdata();
+            } else {
+                alert(res.data.error)
+            }
+
+
+
+
+        })
+
+    }
 
 
 
@@ -282,7 +307,7 @@ function Admindashboard(props) {
                                     </div>
                                     <div class="modal-footer">
 
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" onClick={() => deleteuser()} class="btn btn-danger" data-bs-dismiss="modal">Delete User</button>
                                         <button type="button" onClick={() => changepermisstion()} class="btn btn-primary">Save Changes</button>
                                     </div>
                                 </div>

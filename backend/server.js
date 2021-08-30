@@ -299,6 +299,26 @@ app.post("/setpermission", (req, res) => {
 })
 
 
+app.post("/deleteuser", (req, res) => {
+
+  var { username } = req.body;
+
+  mongooseconfig.deleteOne({ username }).then(r => {
+    User.deleteOne({ username }).then(rb => {
+      res.json({ 'done': rb });
+      res.end();
+    }).catch(error => {
+      res.json({ error: error.message });
+      res.end();
+    })
+
+  }).catch(error => {
+    res.json({ error: error.message });
+    res.end();
+  })
+
+})
+
 
 app.get("/logout", (req, res) => {
   req.logout()

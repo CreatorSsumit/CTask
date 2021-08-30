@@ -36,8 +36,9 @@ class LogIn extends Component {
               {this.props.msg ? this.props.msg : ''}
             </div> : ""}
 
-
-
+            {this.props.loginerror.errors ? <div class="alert alert-danger" role="alert">
+              {this.props.loginerror.errors ? this.props.loginerror.errors[0] : ''}
+            </div> : ""}
 
             <div className='m-1'><p className='text-success font-weight-bold' style={{ fontFamily: 'Roboto' }}>
               {this.props.newuser ? `${this.props.newuser}` : this.props.location ? <div class="alert alert-success" role="alert">  {this.props.location.state.newuser} </div> : " "
@@ -92,9 +93,11 @@ const mapDispatchToProps = ({
 })
 
 function mapStateToProps(state) {
+  console.log(state)
 
   return {
-    msg: state.data.registererror
+    msg: state.data.registererror,
+    loginerror: state.data.profile
   }
 }
 
