@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
-// mongodb+srv://capgemini:capgemini@cluster0.wxqs3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 
-mongoose.connect('mongodb+srv://capgemini:capgemini@cluster0.wxqs3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { useFindAndModify: false }).then(e => {
+
+mongoose.connect('mongodb+srv://CTask:CTask@cluster0.3em5z.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { useFindAndModify: false }).then(e => {
     console.log('config connected')
 }).catch(err => {
     console.log(err.message)
