@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-var mongodburl = "mongodb+srv://capgemini:capgemini@cluster0.wxqs3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+var mongodburl = "mongodb+srv://CTask:CTask@cluster0.3em5z.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 var localmongodburl = "mongodb://localhost/task";
 
 
